@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+
+const concerns = [
+  ['Hair loss', '/conditions/hair-loss-men/'],
+  ['Acne', '/conditions/acne/'],
+  ['Pigmentation', '/conditions/melasma/'],
+  ['Psoriasis and eczema', '/conditions/psoriasis/'],
+  ['Fungal infections', '/conditions/fungal-infections/'],
+  ['All conditions', '/conditions/'],
+];
+---
+
+<Base
+  title="Page not found"
+  description="That page does not exist. Here are the main sections of the site."
+  slug="404"
+  pageType="404"
+  noindex={true}
+>
+  <section class="wrap band">
+    <p class="eyebrow">Error 404</p>
+    <h1 style="margin-top:10px">That page isn't here</h1>
+    <p class="lead" style="margin-top:14px">
+      The link may be out of date, or the address slightly wrong. The site was rebuilt in 2026, so
+      an older bookmark may point somewhere that no longer exists.
+    </p>
+
+    <h2 style="font-size:var(--t-h3); margin-top:36px">Looking for a condition?</h2>
+    <div class="grid grid-3" style="margin-top:18px">
+      {
+        concerns.map(([label, href]) => (
+          <a class="card" href={href} data-track="internal_link_clicked" data-label={label} data-placement="404">
+            <h4>{label}</h4>
+          </a>
+        ))
+      }
+    </div>
+
+    <h2 style="font-size:var(--t-h3); margin-top:40px">Or</h2>
+    <ul style="list-style:none; display:grid; gap:10px; margin-top:14px">
+      <li><a href="/consult-online/">Book an online consultation</a></li>
+      <li><a href="/second-opinions/">Get a second opinion</a></li>
+      <li><a href="/diet/">Diet charts</a></li>
+      <li><a href="/clinics/">Clinics in Narela and Rohini</a></li>
+      <li><a href="/about/">About Dr Hitesh Aggarwal</a></li>
+      <li><a href="/">Back to the homepage</a></li>
+    </ul>
+  </section>
+</Base>

@@ -1,0 +1,192 @@
+---
+import Base from './Base.astro';
+import { doctor, site, bookingHref } from '../data/site.js';
+
+const {
+  title,
+  description,
+  slug,
+  category = 'general',
+  reviewed, // ISO date the doctor last approved this page
+  glance = [], // [[label, value], ...]
+  mistaken = [], // [[what it's confused with, how it differs], ...]
+  faqs = [], // [{ q, a }]
+  related = [], // [[label, href], ...]
+  dietChart = null, // [label, href]
+} = Astro.props;
+
+// MedicalWebPage with reviewedBy is the highest-value schema for
+// health content — Google weighs author credentials heavily on YMYL.
+const medicalSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: title,
+  description,
+  url: new URL(Astro.url.pathname, site.url).href,
+  lastReviewed: reviewed,
+  reviewedBy: {
+    '@type': 'Physician',
+    name: doctor.name,
+    medicalSpecialty: 'Dermatology',
+    identifier: doctor.registration,
+  },
+};
+
+const faqSchema = faqs.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    }
+  : null;
+
+const reviewedLabel = new Date(reviewed).toLocaleDateString('en-IN', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<Base title={title} description={description} slug={slug} pageType="condition" category={category}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(medicalSchema)} />
+    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+  </Fragment>
+
+  <article>
+    <div class="prose" style="padding-block:clamp(28px,5vw,52px) 0">
+      <p class="crumb"><a href="/conditions/">Conditions</a></p>
+      <h1>{title}</h1>
+
+      {
+        glance.length > 0 && (
+          <dl class="glance">
+            {glance.map(([label, value]) => (
+              <div>
+                <dt>{label}</dt>
+                <dd>{value}</dd>
+              </div>
+            ))}
+          </dl>
+        )
+      }
+
+      <slot />
+
+      {/* The signature block: what this gets confused with.
+          This is where the diagnosis-first positioning lives
+          on every page, not just the homepage. */}
+      {
+        mistaken.length > 0 && (
+          <>
+            <h2>What else it could be</h2>
+            <p>
+              These are the conditions this is most often mistaken for. Treating the wrong one is
+              the commonest reason a problem drags on for months.
+            </p>
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:34%">Often mistaken for</th>
+                  <th>How it's told apart</th>
+                </tr>
+              </thead>
+              <tbody>
+                {mistaken.map(([what, how]) => (
+                  <tr>
+                    <th scope="row">{what}</th>
+                    <td>{how}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+        )
+      }
+
+      {
+        faqs.length > 0 && (
+          <>
+            <h2>Common questions</h2>
+            {faqs.map((f, i) => (
+              <details class="faq" data-track="faq_expanded" data-label={`q${i + 1}`}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </>
+        )
+      }
+
+      <div class="actions" style="margin-top:32px">
+        <a
+          class="btn btn-primary"
+          href="/consult-online/"
+          data-track="cta_clicked"
+          data-label="consult_online"
+          data-placement="condition_end">Consult online</a
+        >
+        <a
+          class="btn btn-secondary"
+          href={bookingHref({ concern: title })}
+          rel="noopener"
+          data-track="booking_started"
+          data-mode="clinic"
+          data-placement="condition_end">Book at a clinic</a
+        >
+      </div>
+
+      <aside class="byline">
+        <p><strong>Written and reviewed by {doctor.name}</strong></p>
+        <p style="color:var(--ink-2)">
+          {doctor.qualifications} · {doctor.registration}<br />
+          Practising dermatologist since {doctor.practisingSince}
+        </p>
+        <p style="color:var(--ink-2)">Last reviewed: {reviewedLabel}</p>
+      </aside>
+
+      <p style="font-size:var(--t-micro); color:var(--ink-2); margin-top:20px; line-height:1.6">
+        This page is general information and does not replace a consultation. Whether any treatment
+        described here is right for you depends on examination, history and other medicines, and
+        that assessment needs a doctor.
+      </p>
+    </div>
+
+    {
+      (related.length > 0 || dietChart) && (
+        <section class="band-mist" style="margin-top:48px">
+          <div class="prose band">
+            <h2 style="margin-top:0">Related</h2>
+            <div class="grid grid-3">
+              {related.map(([label, href]) => (
+                <a
+                  class="card"
+                  href={href}
+                  data-track="related_condition_click"
+                  data-label={label}
+                >
+                  <h4>{label}</h4>
+                </a>
+              ))}
+              {dietChart && (
+                <a
+                  class="card"
+                  href={dietChart[1]}
+                  data-track="internal_link_clicked"
+                  data-label="diet_chart"
+                >
+                  <h4>{dietChart[0]}</h4>
+                  <p>Doctor-recommended diet chart</p>
+                </a>
+              )}
+            </div>
+          </div>
+        </section>
+      )
+    }
+  </article>
+</Base>

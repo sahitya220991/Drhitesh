@@ -1,0 +1,83 @@
+---
+import Page from '../layouts/Page.astro';
+import { doctor, site } from '../data/site.js';
+---
+
+<Page
+  title="Medical disclaimer"
+  description="How to use the medical information published on this website, and its limits."
+  slug="disclaimer"
+  updated="2026-10-17"
+  intro="This website publishes general medical information. It is written carefully, but it is not a substitute for being examined."
+>
+  <h2>General information, not personal advice</h2>
+  <p>
+    Everything published here — condition pages, treatment descriptions, diet charts and
+    answers to common questions — is general education. It describes how conditions usually
+    behave and what treatments usually involve. It does not describe your case.
+  </p>
+  <p>
+    Skin and hair conditions that look similar are often different conditions, and the same
+    condition behaves differently in different people. Nothing on this site should be used to
+    diagnose yourself, to decide on a treatment, or to delay seeing a doctor.
+  </p>
+
+  <h2>No doctor–patient relationship</h2>
+  <p>
+    Reading this website does not create a doctor–patient relationship with {doctor.name} or with
+    the clinics. That relationship begins only when you book and attend a consultation, in person
+    or online.
+  </p>
+
+  <h2>Outcomes vary</h2>
+  <p>
+    No result is guaranteed. Response to treatment depends on the diagnosis, the severity, how
+    long the condition has been present, other medical conditions, other medicines, and how
+    consistently treatment is followed. Where a page describes a typical timeframe or a typical
+    degree of improvement, that is an average across patients and not a promise to you.
+  </p>
+  <p>
+    Patient reviews quoted on this site describe individual experiences. They are not a
+    prediction of your outcome.
+  </p>
+
+  <h2>Medicines and procedures</h2>
+  <p>
+    Where this site names a medicine, it is describing treatments used in dermatology — not
+    recommending that you take it. Prescription medicines should only be taken on the advice of a
+    doctor who knows your history, and several of the medicines described carry important
+    restrictions, including in pregnancy.
+  </p>
+  <p>
+    Do not start, stop or change a prescribed medicine on the basis of anything read here.
+  </p>
+
+  <h2>When to seek care urgently</h2>
+  <p>
+    Do not rely on this website if you have a rash that is spreading rapidly, blistering, or
+    accompanied by fever; a severe allergic reaction; a mole or growth that is changing; or any
+    skin problem alongside feeling systemically unwell. Those need to be seen promptly and in
+    person.
+  </p>
+
+  <h2>Links to other websites</h2>
+  <p>
+    Where this site links elsewhere, those pages are not under our control and we are not
+    responsible for their content or accuracy.
+  </p>
+
+  <h2>Review and accuracy</h2>
+  <p>
+    Clinical pages carry the date they were last reviewed. Medical understanding changes, and a
+    page may not reflect the most recent evidence between reviews. If you believe something here
+    is inaccurate, please write to <a href={`mailto:${site.email}`}>{site.email}</a> — corrections
+    are welcome.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    {doctor.name}, {doctor.qualifications}<br />
+    {doctor.registration}<br />
+    <a href={`mailto:${site.email}`}>{site.email}</a>
+  </p>
+</Page>

@@ -1,0 +1,71 @@
+---
+import Page from '../layouts/Page.astro';
+import { doctor, site } from '../data/site.js';
+---
+
+<Page
+  title="For doctors — training and workshops"
+  description="Hands-on facial aesthetics workshops for practising doctors, run by Dr Hitesh Aggarwal, MBBS DDVL."
+  slug="for-doctors"
+  intro="Hands-on training in facial aesthetics for practising doctors, plus referrals and case discussion."
+  showByline={true}
+>
+  <p>
+    Alongside clinical practice, {doctor.name} teaches — a thread that goes back to his training
+    years, where he taught medical students and internees in the dermatology department at J.J.M.
+    Medical College, Davangere.
+  </p>
+
+  <h2>Facial aesthetics workshops</h2>
+
+  <p>
+    A hands-on workshop for practising doctors covering facial anatomy, injectable technique,
+    patient selection, and — the part most short courses skip — recognising and managing
+    complications.
+  </p>
+
+  <p>
+    The emphasis is on doing fewer things properly rather than demonstrating a long menu.
+    Anatomy and patient selection take up more of the day than product technique, because that is
+    where avoidable harm actually comes from.
+  </p>
+
+  <h3>Typically covered</h3>
+  <ul>
+    <li>Relevant facial anatomy, with the danger zones treated as the core of the session</li>
+    <li>Assessment and patient selection — including who should be declined</li>
+    <li>Injectable technique, practised under supervision</li>
+    <li>Recognising vascular compromise early, and what to do in the first minutes</li>
+    <li>Consent, documentation and realistic expectation-setting with patients</li>
+  </ul>
+
+  <div class="note">
+    <h3>Details to be confirmed</h3>
+    <p>
+      Upcoming dates, venue, fee and group size are not listed here yet. Write to
+      <a href={`mailto:${site.email}`}>{site.email}</a> with your qualification and current
+      practice, and you will be sent details of the next session.
+    </p>
+  </div>
+
+  <h2>Referrals</h2>
+
+  <p>
+    Referrals from colleagues are welcome, particularly for diagnostically difficult cases —
+    rashes that have not responded as expected, hair loss where the pattern is unclear, and
+    genital dermatoses, which are often where a general practice reaches the limit of what it can
+    reasonably assess.
+  </p>
+
+  <p>
+    Please send the history, what has already been tried and for how long, and any photographs or
+    reports. A written summary of the assessment goes back to the referring doctor.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    <a href={`mailto:${site.email}`}>{site.email}</a><br />
+    {doctor.name}, {doctor.qualifications}<br />
+    {doctor.registration}
+  </p>
+</Page>

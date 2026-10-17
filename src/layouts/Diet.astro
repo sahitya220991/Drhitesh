@@ -1,0 +1,126 @@
+---
+// Diet chart layout — built to be shared on WhatsApp and printed.
+import Base from './Base.astro';
+import { doctor, site, bookingHref } from '../data/site.js';
+
+const {
+  title,
+  description,
+  slug,
+  category = 'general',
+  reviewed,
+  concern, // [label, href] — the condition this supports
+  intro,
+} = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: title,
+  description,
+  url: new URL(Astro.url.pathname, site.url).href,
+  lastReviewed: reviewed,
+  reviewedBy: {
+    '@type': 'Physician',
+    name: doctor.name,
+    medicalSpecialty: 'Dermatology',
+    identifier: doctor.registration,
+  },
+};
+
+const reviewedLabel = new Date(reviewed).toLocaleDateString('en-IN', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<Base title={title} description={description} slug={slug} pageType="diet" category={category}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+
+  <article class="prose" style="padding-block:clamp(28px,5vw,52px) 48px">
+    <p class="crumb"><a href="/diet/">Diet charts</a></p>
+    <h1>{title}</h1>
+    <p class="lead" style="margin-top:14px">{intro}</p>
+
+    <div class="actions no-print" style="margin-top:22px">
+      <button class="btn btn-secondary" id="share" data-track="diet_chart_shared" data-label={slug}>
+        Share this chart
+      </button>
+      <button class="btn btn-secondary" id="print" data-track="diet_chart_printed" data-label={slug}>
+        Print
+      </button>
+    </div>
+
+    <slot />
+
+    <div class="note" style="margin-top:32px">
+      <p>
+        Diet supports treatment and does not replace it. If the problem has been going on for
+        months, or is getting worse, have it properly assessed —
+        <a href={concern[1]}>read about {concern[0].toLowerCase()}</a> or book a consultation.
+      </p>
+    </div>
+
+    <div class="actions no-print" style="margin-top:24px">
+      <a
+        class="btn btn-primary"
+        href="/consult-online/"
+        data-track="cta_clicked"
+        data-label="consult_online"
+        data-placement="diet_end">Consult online</a
+      >
+      <a
+        class="btn btn-secondary"
+        href={bookingHref()}
+        rel="noopener"
+        data-track="booking_started"
+        data-mode="clinic"
+        data-placement="diet_end">Book at a clinic</a
+      >
+    </div>
+
+    <aside class="byline">
+      <p><strong>Written and reviewed by {doctor.name}</strong></p>
+      <p style="color:var(--ink-2)">{doctor.qualifications} · {doctor.registration}</p>
+      <p style="color:var(--ink-2)">Last reviewed: {reviewedLabel}</p>
+    </aside>
+  </article>
+
+  <script>
+    document.getElementById('share')?.addEventListener('click', async () => {
+      const data = { title: document.title, url: location.href };
+      if (navigator.share) {
+        try {
+          await navigator.share(data);
+        } catch {}
+      } else {
+        try {
+          await navigator.clipboard.writeText(location.href);
+          alert('Link copied');
+        } catch {}
+      }
+    });
+    document.getElementById('print')?.addEventListener('click', () => window.print());
+  </script>
+
+  <style is:global>
+    @media print {
+      header,
+      footer,
+      .stickybar,
+      .no-print,
+      #consent {
+        display: none !important;
+      }
+      body {
+        padding-bottom: 0;
+      }
+      .prose {
+        max-width: 100%;
+      }
+    }
+  </style>
+</Base>

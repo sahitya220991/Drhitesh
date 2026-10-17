@@ -1,0 +1,124 @@
+---
+import Condition from '../../layouts/Condition.astro';
+---
+
+<Condition
+  title="Acne scars"
+  description="Pitted scars, rolling scars and post-acne marks — which type you have decides the treatment, and what results are realistic. By Dr Hitesh Aggarwal, dermatologist."
+  slug="acne-scars"
+  category="acne"
+  reviewed="2026-10-17"
+  glance={[
+    ['First step', 'Active acne must be controlled before scar treatment'],
+    ['Realistic improvement', 'Substantial, typically not complete'],
+    ['Marks vs scars', 'Flat marks fade on their own; pits do not'],
+  ]}
+  mistaken={[
+    ['Flat brown marks', 'Post-inflammatory pigmentation, not a scar. Fades over months with sun protection — no procedure needed.'],
+    ['Red marks', 'Post-inflammatory erythema from dilated vessels. Also temporary, though slower in fair skin.'],
+    ['Open pores', 'Enlarged follicular openings, often mistaken for tiny scars. Treated differently and improved only modestly.'],
+    ['Keloid and hypertrophic scars', 'Raised rather than depressed, mostly on the chest, shoulders and jawline. Resurfacing makes these worse; they need injections.'],
+    ['Active nodular acne', 'Still inflamed lesions, not yet scars. Resurfacing active acne causes more scarring.'],
+  ]}
+  related={[
+    ['Acne', '/conditions/acne/'],
+    ['Pigmentation and uneven tone', '/conditions/pigmentation/'],
+    ['Melasma', '/conditions/melasma/'],
+  ]}
+  dietChart={['Diet for acne', '/diet/acne/']}
+  faqs={[
+    {
+      q: 'Can acne scars be removed completely?',
+      a: 'Honestly, no. Good treatment achieves substantial improvement — often 50 to 80 percent across a course — and most patients are satisfied with that. Promises of complete removal are not achievable with current technology, and expecting it leads to disappointment with a result that was actually good.',
+    },
+    {
+      q: 'Why can\'t we treat the scars while the acne is still active?',
+      a: 'Because new lesions are still forming new scars, so the result is undone as it is achieved. Resurfacing inflamed skin also risks worsening both. Controlling the acne first is not a delay tactic; it is what makes the scar treatment hold.',
+    },
+    {
+      q: 'How many sessions will I need?',
+      a: 'Typically four to six, spaced four to six weeks apart, often combining more than one technique because most people have more than one scar type. You will be given a realistic number before starting, not after.',
+    },
+    {
+      q: 'Is microneedling at a salon the same thing?',
+      a: 'No. Depth, sterility and device quality differ substantially, and inadequate depth produces no benefit while poor technique risks infection and more scarring. This is a medical procedure.',
+    },
+    {
+      q: 'Can scar treatment be done online?',
+      a: 'No — these are procedures and they require in-person visits. An online consultation can assess the scar types, confirm whether active acne needs controlling first, and plan the course, which saves a trip.',
+    },
+  ]}
+>
+  <p>
+    Acne scarring happens when inflammation damages collagen in the dermis. Once that structural
+    damage is done it does not fade with time, which is what separates a true scar from the brown
+    or red marks that do.
+  </p>
+
+  <p>
+    Telling those apart is the first job, and it changes everything that follows. A patient
+    spending money on laser sessions for marks that would have faded by themselves is a common and
+    avoidable outcome.
+  </p>
+
+  <h2>Types, because treatment differs</h2>
+
+  <h3>Ice-pick scars</h3>
+  <p>
+    Narrow, deep and steep-sided, like a puncture. The hardest type to resurface, and usually
+    treated with TCA CROSS — a focused application of acid into each scar — rather than lasers.
+  </p>
+
+  <h3>Boxcar scars</h3>
+  <p>
+    Wider depressions with sharply defined edges. Respond well to fractional resurfacing and
+    microneedling radiofrequency.
+  </p>
+
+  <h3>Rolling scars</h3>
+  <p>
+    Broad, shallow undulations caused by fibrous bands tethering the skin to deeper tissue.
+    Subcision — releasing those bands with a needle — is the key step, and resurfacing alone
+    disappoints here.
+  </p>
+
+  <h3>Hypertrophic and keloid scars</h3>
+  <p>
+    Raised rather than depressed, more common on the chest, shoulders and jawline. Treated with
+    intralesional steroid injections, sometimes with 5-FU. Resurfacing worsens them.
+  </p>
+
+  <h2>How it is assessed</h2>
+
+  <p>
+    Scars are examined under good lighting and from several angles, because depressions show
+    differently under side lighting than straight on. Most patients have a mix of types, which is
+    why plans usually combine techniques. Skin tone is assessed too — deeper skin carries a higher
+    risk of post-procedure pigmentation, which changes device settings.
+  </p>
+
+  <p>
+    If acne is still active, that is treated first. This is not negotiable.
+  </p>
+
+  <h2>Treatments</h2>
+
+  <ul>
+    <li><strong>Subcision</strong> — releases tethering bands under rolling scars. Often the highest-value single step</li>
+    <li><strong>Microneedling radiofrequency (MNRF)</strong> — stimulates collagen with lower pigmentation risk in Indian skin than ablative lasers</li>
+    <li><strong>Fractional CO2 laser</strong> — effective for boxcar scars and texture, with real downtime and a higher pigmentation risk that needs managing</li>
+    <li><strong>TCA CROSS</strong> — for ice-pick scars specifically</li>
+    <li><strong>Dermal fillers</strong> — lift individual depressed scars; temporary, lasting months to a year</li>
+    <li><strong>Punch excision</strong> — for a few deep, isolated scars that will not resurface</li>
+    <li><strong>Chemical peels</strong> — modest help for shallow texture; not a treatment for true scarring on their own</li>
+  </ul>
+
+  <div class="note">
+    <h3>What determines the result more than the device</h3>
+    <p>
+      Sun protection between sessions, completing the planned course rather than stopping after
+      two, and having the scar types correctly identified at the start. The same machine produces
+      very different outcomes depending on those three.
+    </p>
+  </div>
+</Condition>

@@ -1,0 +1,105 @@
+---
+import Page from '../layouts/Page.astro';
+import { doctor, site } from '../data/site.js';
+---
+
+<Page
+  title="Terms of use"
+  description="Terms for using this website and for booking consultations."
+  slug="terms"
+  updated="2026-10-17"
+  intro="The terms on which this website is provided, and the basis on which consultations are booked."
+>
+  <div class="note note-warn">
+    <h3>Before publishing</h3>
+    <p>
+      This is a working draft prepared alongside the website. It should be reviewed by a lawyer
+      before the site goes live, particularly the sections on cancellation and liability.
+    </p>
+  </div>
+
+  <h2>Using this website</h2>
+  <p>
+    This website is published by {doctor.name}, {doctor.qualifications}, {doctor.registration}. By
+    using it you accept these terms.
+  </p>
+  <p>
+    The content is general medical information, not personal medical advice. Please read the
+    <a href="/disclaimer/">medical disclaimer</a>, which forms part of these terms.
+  </p>
+
+  <h2>Content and copyright</h2>
+  <p>
+    The text on this site is written for this practice and is its copyright. You are welcome to
+    read it, print it and share links to it — the diet charts in particular are intended to be
+    shared. Republishing substantial portions elsewhere, or presenting it as your own, is not
+    permitted.
+  </p>
+
+  <h2>Booking a consultation</h2>
+  <p>
+    Booking a slot, in person or online, is a request for an appointment. An appointment is
+    confirmed when you receive confirmation from the clinic.
+  </p>
+  <p>
+    You are asked to provide accurate information about your condition, your medical history and
+    any medicines you are taking. A diagnosis made on incomplete or inaccurate information may be
+    wrong, and that is a real clinical risk rather than a formality.
+  </p>
+
+  <h2>Online consultations</h2>
+  <p>
+    Online consultations are conducted under India's Telemedicine Practice Guidelines. Your
+    identity is verified and your consent is recorded before the consultation begins.
+  </p>
+  <p>
+    Not every condition can be assessed over video. If yours cannot, you will be told at the
+    start of the consultation and advised to be seen in person — either at one of the clinics or
+    by a doctor near you.
+  </p>
+  <p>
+    Only medicines that the telemedicine rules permit will be prescribed remotely. Some
+    medicines require an in-person examination first, and that restriction is not negotiable.
+  </p>
+
+  <h2>Fees, cancellation and refunds</h2>
+  <p>
+    Consultation fees are shown before payment is taken. A consultation fee covers the
+    consultation itself — the assessment, the explanation and the plan — and not a guaranteed
+    outcome.
+  </p>
+  <p>
+    If a consultation cannot be completed usefully online and you are advised to be seen in
+    person instead, the consultation fee is not taken.
+  </p>
+  <p>
+    [To be completed before publication: cancellation window, rescheduling policy, and refund
+    terms.]
+  </p>
+
+  <h2>What this service is not</h2>
+  <p>
+    This is not an emergency service. If you have a rapidly spreading rash, blistering, a severe
+    allergic reaction, or any skin problem with fever or feeling unwell, seek care immediately in
+    person rather than booking an online consultation.
+  </p>
+
+  <h2>Limits of liability</h2>
+  <p>
+    We take care that the information published here is accurate at the time of review, but we
+    do not warrant that it is complete or current, and we are not liable for decisions taken on
+    the basis of it without a consultation.
+  </p>
+  <p>
+    Nothing in these terms limits liability for professional negligence, which is governed by
+    Indian medical law and the applicable regulations.
+  </p>
+
+  <h2>Governing law</h2>
+  <p>
+    These terms are governed by the laws of India, and the courts at Delhi have jurisdiction.
+  </p>
+
+  <h2>Contact</h2>
+  <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+</Page>

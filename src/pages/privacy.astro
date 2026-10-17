@@ -1,0 +1,112 @@
+---
+import Page from '../layouts/Page.astro';
+import { doctor, site } from '../data/site.js';
+---
+
+<Page
+  title="Privacy policy"
+  description="What information this website collects, how consultation records are handled, and your rights over your data."
+  slug="privacy"
+  updated="2026-10-17"
+  intro="What this website collects, what the practice holds about patients, and what you can ask for."
+>
+  <div class="note note-warn">
+    <h3>Before publishing</h3>
+    <p>
+      This policy is a working draft prepared alongside the website. It should be reviewed by a
+      lawyer familiar with the Digital Personal Data Protection Act, 2023 and with medical
+      records requirements before the site goes live, and the Data Protection Officer details
+      below must be completed.
+    </p>
+  </div>
+
+  <h2>Who we are</h2>
+  <p>
+    {doctor.name}, {doctor.qualifications}, {doctor.registration}, practising at clinics in Narela
+    and Rohini, Delhi, and providing online consultations. Contact:
+    <a href={`mailto:${site.email}`}>{site.email}</a>.
+  </p>
+
+  <h2>What the website collects</h2>
+
+  <h3>Analytics</h3>
+  <p>
+    If you agree to analytics when asked, we record which pages are visited, how far down a page
+    people scroll, and which buttons are used. This is used to understand which pages are useful.
+  </p>
+  <p>
+    This analytics data is deliberately limited. It does not include your name, phone number,
+    email address or anything you type. Specific health conditions are recorded only as broad
+    categories, never as the individual page where that would identify a health concern with a
+    person. If you decline, no analytics are loaded at all.
+  </p>
+
+  <h3>If you contact us</h3>
+  <p>
+    When you message on WhatsApp, call, or email, we receive whatever you choose to send —
+    typically your name, contact number and a description of your concern. This is used to
+    respond to you and to arrange a consultation.
+  </p>
+
+  <h2>Patient records</h2>
+  <p>
+    If you attend a consultation, in person or online, a clinical record is created. It contains
+    your history, examination findings, any photographs you provide or that are taken with your
+    consent, test results, and prescriptions issued.
+  </p>
+  <p>
+    Clinical records are confidential. They are not shared with family members, employers or
+    anyone else without your consent, except where disclosure is required by law.
+  </p>
+  <p>
+    Records are retained in line with medical record-keeping requirements in India. Online
+    consultations are additionally governed by the Telemedicine Practice Guidelines, which
+    require that identity, consent and the consultation record are documented.
+  </p>
+
+  <h2>Photographs</h2>
+  <p>
+    Photographs form part of your clinical record and are stored with it. They are never used on
+    this website, on social media, in teaching or in any other public setting without your
+    separate, specific, written consent — and that consent can be withdrawn.
+  </p>
+
+  <h2>Who else processes your data</h2>
+  <p>
+    The website is hosted by a third-party hosting provider. Analytics are processed by a
+    third-party analytics provider, only with your consent. Payments, when taken, are processed
+    by a payment provider and card details are never held by us. Where any of these are located
+    outside India, data may be processed outside India.
+  </p>
+
+  <h2>Your rights</h2>
+  <p>Under the Digital Personal Data Protection Act, 2023 you may:</p>
+  <ul>
+    <li>Ask what personal data we hold about you</li>
+    <li>Ask for inaccurate data to be corrected</li>
+    <li>Ask for data to be erased, subject to medical record retention requirements</li>
+    <li>Withdraw consent you previously gave, including for analytics and for photographs</li>
+    <li>Raise a grievance, and escalate it to the Data Protection Board of India</li>
+  </ul>
+  <p>
+    To make any of these requests, write to <a href={`mailto:${site.email}`}>{site.email}</a>.
+  </p>
+
+  <h2>Changing your analytics choice</h2>
+  <p>
+    Your choice is stored in your own browser. Clearing your browser's site data for this website
+    will make the question appear again, and you can answer differently.
+  </p>
+
+  <h2>Children</h2>
+  <p>
+    This website is not directed at children. Patients under 18 are consulted with a parent or
+    guardian present, and their records are handled with the same confidentiality.
+  </p>
+
+  <h2>Grievance contact</h2>
+  <p>
+    [To be completed before publication: name and contact details of the person responsible for
+    data protection queries.]
+  </p>
+</Page>

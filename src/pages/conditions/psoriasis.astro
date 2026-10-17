@@ -1,0 +1,129 @@
+---
+import Condition from '../../layouts/Condition.astro';
+---
+
+<Condition
+  title="Psoriasis"
+  description="Psoriasis is controlled, not cured — what it is, what it's mistaken for, and the treatments that work at each severity. By Dr Hitesh Aggarwal, dermatologist, DMC 57994."
+  slug="psoriasis"
+  category="chronic"
+  reviewed="2026-10-17"
+  glance={[
+    ['What it is', 'An immune-driven condition, not an infection'],
+    ['Contagious', 'No — it cannot be passed to anyone'],
+    ['Realistic goal', 'Long periods of clear or near-clear skin'],
+  ]}
+  mistaken={[
+    ['Fungal infection', 'Ringworm has an active, scaly advancing edge with clearing in the middle. A KOH mount settles it in minutes. Antifungals do nothing for psoriasis.'],
+    ['Seborrhoeic dermatitis', 'Greasier, yellowish scale in the eyebrows, nasal folds and scalp, with less sharply defined edges.'],
+    ['Eczema', 'Itchier, less sharply bordered, with finer scale and a different distribution — flexures rather than knees and elbows.'],
+    ['Lichen planus', 'Violet-coloured flat-topped bumps, often with mouth involvement and fine white lines on the surface.'],
+    ['Cutaneous T-cell lymphoma', 'Rare, but worth remembering in long-standing patches that never fit the picture and never respond. Needs a biopsy.'],
+  ]}
+  related={[
+    ['Eczema', '/conditions/eczema/'],
+    ['Fungal infections', '/conditions/fungal-infections/'],
+    ['Vitiligo', '/conditions/vitiligo/'],
+  ]}
+  faqs={[
+    {
+      q: 'Can psoriasis be cured?',
+      a: 'No. It can be brought to clear or near-clear skin and held there for long periods, sometimes years. It is a long-term condition with a tendency to flare, and treatment is about control rather than cure. Being told this honestly at the start avoids a cycle of disappointment and clinic-hopping.',
+    },
+    {
+      q: 'Is it contagious?',
+      a: 'Not at all. It is an immune-mediated condition in which skin cells are produced far faster than normal. Nobody can catch it from you, including by sharing a towel, a bed or a swimming pool.',
+    },
+    {
+      q: 'Why do my joints ache?',
+      a: 'Up to a third of people with psoriasis develop psoriatic arthritis. Persistent joint pain and morning stiffness should be mentioned at your consultation, because early treatment prevents permanent joint damage and it changes which medication is chosen.',
+    },
+    {
+      q: 'Are steroid creams safe to keep using?',
+      a: 'In courses, under guidance, yes. Used continuously on the same area for months they thin the skin and the condition rebounds harder when stopped. This is why plans alternate steroids with vitamin D analogues and other agents rather than relying on one cream indefinitely.',
+    },
+    {
+      q: 'What triggers a flare?',
+      a: 'Throat infections, stress, smoking, alcohol, skin injury, cold dry weather, and certain medicines including some blood pressure tablets and lithium. Abruptly stopping oral steroids can cause a severe flare, which is one reason oral steroids are generally avoided in psoriasis.',
+    },
+  ]}
+>
+  <p>
+    Psoriasis is an immune-driven condition in which skin cells are produced much faster than they
+    are shed. The result is thickened, red or dusky plaques with silvery scale, most often on the
+    elbows, knees, lower back and scalp, though it can appear anywhere including the nails.
+  </p>
+
+  <p>
+    It is not an infection, it is not caused by poor hygiene, and it cannot be passed to anyone
+    else. Those three misconceptions cause more distress than the condition itself in many
+    patients.
+  </p>
+
+  <h2>Forms it takes</h2>
+
+  <ul>
+    <li><strong>Chronic plaque psoriasis</strong> — the common form. Well-defined scaly plaques on extensor surfaces.</li>
+    <li><strong>Scalp psoriasis</strong> — thick scale along the hairline, often mistaken for severe dandruff.</li>
+    <li><strong>Guttate psoriasis</strong> — a sudden shower of small spots, often a week or two after a throat infection. Frequently settles on its own.</li>
+    <li><strong>Inverse psoriasis</strong> — in the folds, where it is shiny and red rather than scaly, and often misdiagnosed as fungal.</li>
+    <li><strong>Nail psoriasis</strong> — pitting, discolouration and lifting. Commonly treated for months as a nail fungus before the diagnosis is made.</li>
+    <li><strong>Pustular and erythrodermic psoriasis</strong> — uncommon, severe, and needing urgent in-person care.</li>
+  </ul>
+
+  <h2>How it is assessed</h2>
+
+  <p>
+    Mostly clinically — the appearance, distribution and the characteristic scale are usually
+    enough. Dermoscopy helps where it is unclear. A KOH mount is worth doing where fungus is in the
+    differential, especially in the folds. A biopsy is occasionally needed when the picture is
+    atypical or the response is unexpected.
+  </p>
+
+  <p>
+    Because psoriasis is associated with joint disease, cardiovascular risk, diabetes and fatty
+    liver, the consultation covers more than skin: joint symptoms, weight, blood pressure and
+    relevant blood tests where indicated.
+  </p>
+
+  <h2>Treatment by severity</h2>
+
+  <h3>Limited disease</h3>
+  <p>
+    Topical treatment: vitamin D analogues such as calcipotriol, topical steroids used in courses,
+    coal tar preparations, and salicylic acid to lift thick scale so the active treatment can
+    reach the skin. Emollients used generously make everything else work better.
+  </p>
+
+  <h3>Moderate disease</h3>
+  <p>
+    Phototherapy — narrowband UVB, given in a controlled course — is effective and well
+    established. Oral methotrexate, acitretin or ciclosporin are used where phototherapy is not
+    practical, each with its own monitoring requirements.
+  </p>
+
+  <h3>Severe or treatment-resistant disease</h3>
+  <p>
+    Biologics targeting specific parts of the immune pathway have changed outcomes substantially
+    for severe psoriasis. They require screening before starting, including for tuberculosis, and
+    ongoing monitoring.
+  </p>
+
+  <div class="note note-warn">
+    <h3>One thing to avoid</h3>
+    <p>
+      Oral steroids are often prescribed for psoriasis because they clear it quickly. When they are
+      stopped, the condition frequently rebounds worse than before, occasionally into a severe
+      form. If a tablet cleared your psoriasis in days, bring the prescription to your
+      consultation.
+    </p>
+  </div>
+
+  <h2>Living with it</h2>
+
+  <p>
+    Moisturising daily, treating throat infections promptly, stopping smoking and reducing alcohol
+    all measurably reduce flares. So does having a plan for what to do when a flare starts, rather
+    than restarting the search for a doctor each time.
+  </p>
+</Condition>

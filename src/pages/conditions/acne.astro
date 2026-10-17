@@ -1,0 +1,131 @@
+---
+import Condition from '../../layouts/Condition.astro';
+---
+
+<Condition
+  title="Acne"
+  description="What causes acne, why it comes back, and which treatments have real evidence. Written by Dr Hitesh Aggarwal, dermatologist, DMC 57994."
+  slug="acne"
+  category="acne"
+  reviewed="2026-10-17"
+  glance={[
+    ['Not caused by', 'Poor hygiene, or oily food on its own'],
+    ['Treatment works best', 'Started before scarring begins'],
+    ['Time to visible change', '6 to 8 weeks, with daily use'],
+  ]}
+  mistaken={[
+    ['Rosacea', 'Redness and flushing across the central face, with no blackheads. Treated differently, and some acne treatments make it worse.'],
+    ['Folliculitis', 'Infection of hair follicles — uniform small pustules, often on the chest, back or thighs, and bacterial or fungal rather than hormonal.'],
+    ['Fungal acne (Malassezia folliculitis)', 'Itchy, same-sized bumps that do not respond to antibiotics and need antifungal treatment instead.'],
+    ['Steroid-induced acne', 'Follows use of a steroid cream or tablets. The steroid has to be withdrawn carefully or it flares badly.'],
+    ['Perioral dermatitis', 'Small bumps clustered around the mouth or nose, usually triggered by a steroid cream or heavy moisturiser.'],
+  ]}
+  related={[
+    ['Acne scars', '/conditions/acne-scars/'],
+    ['PCOS skin and hair', '/conditions/pcos/'],
+    ['Pigmentation', '/conditions/pigmentation/'],
+  ]}
+  dietChart={['Diet for acne', '/diet/acne/']}
+  faqs={[
+    {
+      q: 'Is acne caused by what I eat?',
+      a: 'Partly, and less than most people think. There is reasonable evidence that a high glycaemic load diet and possibly skimmed milk worsen acne in some people. There is no good evidence that oily or spicy food causes it. Diet is worth adjusting, but it is a supporting measure, not a treatment.',
+    },
+    {
+      q: 'Why does it come back when I stop treatment?',
+      a: 'Because treatment controls the process rather than removing the tendency. Most plans move from a clearing phase to a lighter maintenance phase, which is what keeps it away. Stopping entirely usually means a return within a few months.',
+    },
+    {
+      q: 'Should I be taking isotretinoin?',
+      a: 'It is the most effective treatment available for severe or scarring acne, and for acne that has failed other treatment. It also needs monitoring, carries a strict pregnancy restriction, and should only be started after a proper discussion of side effects. It is not a first step for mild acne.',
+    },
+    {
+      q: 'Will the marks left behind go away on their own?',
+      a: 'Flat brown or red marks usually fade over several months, faster with sun protection. Pitted or depressed scars do not fade on their own and need a procedure. Telling the two apart at the first consultation matters, because it changes what is worth spending money on.',
+    },
+    {
+      q: 'Can acne be treated online?',
+      a: 'Usually yes. Acne is visible in good photographs, and most treatment is topical or oral. A first consultation for isotretinoin, or any case where the diagnosis is uncertain, is better in person.',
+    },
+  ]}
+>
+  <p>
+    Acne happens when a follicle becomes blocked with oil and dead skin cells, bacteria multiply
+    inside it, and the wall of the follicle inflames. Hormones drive how much oil the gland makes,
+    which is why it starts at puberty and why it often persists or returns in adult women.
+  </p>
+
+  <p>
+    It is not caused by being unclean. Scrubbing harder makes it worse, because the barrier damage
+    adds inflammation to a follicle that is already inflamed.
+  </p>
+
+  <h2>What type you have changes the treatment</h2>
+
+  <h3>Comedonal</h3>
+  <p>
+    Blackheads and whiteheads, with little redness. Responds to topical retinoids. Antibiotics do
+    very little here, which is why they are often the wrong first prescription.
+  </p>
+
+  <h3>Inflammatory</h3>
+  <p>
+    Red papules and pustules. Usually needs a retinoid combined with benzoyl peroxide or a topical
+    antibiotic, and sometimes a short oral antibiotic course.
+  </p>
+
+  <h3>Nodulocystic</h3>
+  <p>
+    Deep, painful lumps that last for weeks and scar. This is the type where delaying effective
+    treatment costs permanent texture change, and where isotretinoin is usually the right answer
+    rather than the last resort.
+  </p>
+
+  <h3>Hormonal pattern</h3>
+  <p>
+    Acne along the jawline and chin in adult women, often worse before periods. Worth checking for
+    PCOS when it comes with irregular cycles, excess facial hair or hair thinning. Treatment may
+    include anti-androgens rather than more antibiotics.
+  </p>
+
+  <h2>How it is assessed</h2>
+
+  <p>
+    The examination establishes the type, the depth, whether scarring has already started, and
+    whether anything is driving it — a steroid cream, a hair oil, a supplement, or a hormonal
+    cause. The history matters as much as the appearance: what has already been used, for how long,
+    and what happened.
+  </p>
+
+  <p>
+    Blood tests are not routine. They are ordered where the pattern suggests a hormonal cause, and
+    before starting isotretinoin.
+  </p>
+
+  <h2>Treatments with real evidence</h2>
+
+  <ul>
+    <li><strong>Topical retinoids</strong> — adapalene, tretinoin. The backbone of almost every plan. Expect dryness and some irritation for the first few weeks, and expect it to settle.</li>
+    <li><strong>Benzoyl peroxide</strong> — reduces bacteria without producing resistance, which is why it is usually paired with any antibiotic.</li>
+    <li><strong>Topical and oral antibiotics</strong> — useful for inflammatory acne, but for a limited course. Long unbroken antibiotic use is how resistance develops.</li>
+    <li><strong>Anti-androgens</strong> — for hormonal pattern acne in women, where oil production is the driver.</li>
+    <li><strong>Isotretinoin</strong> — for severe, scarring or treatment-resistant acne. Highly effective, and requires monitoring and counselling.</li>
+    <li><strong>Chemical peels</strong> — salicylic acid peels help comedonal acne and post-acne marks as an addition, not as the whole plan.</li>
+  </ul>
+
+  <div class="note note-warn">
+    <h3>What to be cautious about</h3>
+    <p>
+      Steroid-containing creams sold over the counter for "pimples and fairness" clear acne for a
+      week and then make it considerably worse, often with permanent redness and broken vessels.
+      This is one of the most common avoidable problems seen in clinic. If a cream worked
+      dramatically in a few days and then stopped, bring the tube to your consultation.
+    </p>
+  </div>
+
+  <p>
+    Facials, frequent scrubbing and most "anti-acne" face washes do very little on their own. They
+    are not harmful in moderation, but they are not treatment, and months spent on them are months
+    in which nodular acne is scarring.
+  </p>
+</Condition>

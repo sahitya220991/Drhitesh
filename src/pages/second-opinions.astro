@@ -1,0 +1,127 @@
+---
+import Page from '../layouts/Page.astro';
+import { bookingHref } from '../data/site.js';
+
+const bring = [
+  'Every cream, tablet, oil or serum you are using — including anything bought without a prescription',
+  'Previous prescriptions, even old ones',
+  'Any blood tests, swabs or biopsy reports',
+  'Photographs of the problem at its worst, if it fluctuates',
+  'Roughly when it started, and what has changed since',
+];
+
+const patterns = [
+  ['Treated repeatedly for a fungal infection that never clears', 'Frequently it was never fungal, or it is fungal but has been altered by a steroid cream. A KOH mount settles it.'],
+  ['Hair fall treated with supplements for a year', 'Often nobody tested ferritin or thyroid function, and nobody examined the scalp under magnification.'],
+  ['Acne cleared and then came back worse', 'Commonly a steroid-containing cream, or an antibiotic used alone for too long without a retinoid.'],
+  ['Pigmentation that got darker after treatment', 'Usually laser or peel settings too aggressive for Indian skin, or sunscreen stopped once it improved.'],
+  ['A rash treated as eczema that never settles', 'Worth reconsidering the diagnosis — fungal infection, contact allergy and psoriasis all get treated as eczema.'],
+];
+---
+
+<Page
+  title="Second opinions"
+  description="Already been treated two or three times without improvement? That is most of this practice. Second opinions in clinic or online, across India."
+  slug="second-opinions"
+  intro="If you have been treated two or three times without improvement, the problem is usually the diagnosis rather than the treatment."
+>
+  <p>
+    Most people who come here have already seen someone. Often several people. They arrive with a
+    bag of creams, a condition that keeps returning, and a reasonable suspicion that nobody has
+    actually worked out what is wrong.
+  </p>
+
+  <p>
+    That is not an unusual case here — it is the ordinary one. And the pattern is consistent
+    enough to be worth naming: when a skin condition has resisted three rounds of treatment, the
+    issue is far more often a diagnosis that was never established than a condition that is
+    genuinely untreatable.
+  </p>
+
+  <h2>What usually turns out to be going on</h2>
+
+  <table>
+    <tbody>
+      {
+        patterns.map(([what, why]) => (
+          <tr>
+            <th scope="row" style="width:42%">{what}</th>
+            <td>{why}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+
+  <h2>What a second opinion here involves</h2>
+
+  <p>
+    The first job is to establish what the condition actually is, which means going back to the
+    beginning rather than adding another cream to the sequence. That means a proper history — how
+    long, what changed before it started, what has been applied and what happened each time — and
+    then examination, with the test that confirms or excludes the likely diagnosis.
+  </p>
+
+  <p>
+    Sometimes that produces a different diagnosis. Sometimes it confirms that the earlier
+    diagnosis was right and the treatment simply needed longer or a higher dose, which is a
+    useful answer too, and it saves you starting over again elsewhere.
+  </p>
+
+  <p>
+    What you should expect either way is to be told what the condition is, how confident that
+    assessment is, what the plan is, and roughly how long it should take — in language you can
+    repeat to someone else.
+  </p>
+
+  <h2>Bring this with you</h2>
+
+  <ul>{bring.map((b) => <li>{b}</li>)}</ul>
+
+  <div class="note">
+    <h3>Especially the creams</h3>
+    <p>
+      Combination creams containing a potent steroid are sold widely in India for almost any itch
+      or rash. They are the single commonest reason a straightforward condition becomes a
+      difficult one, and they change how it looks so the diagnosis is missed. Bring the tube
+      rather than the name — the ingredient list is what matters.
+    </p>
+  </div>
+
+  <h2>Can this be done online?</h2>
+
+  <p>
+    Often, yes — and for a second opinion it is frequently the more practical option, because the
+    history and the previous prescriptions carry a lot of the information.
+  </p>
+
+  <p>
+    Where the answer depends on dermoscopy, a KOH mount or a biopsy, you will be told that at the
+    start of the consultation rather than afterwards, and advised where to be seen.
+  </p>
+
+  <div class="actions" style="margin-top:28px">
+    <a
+      class="btn btn-primary"
+      href="/consult-online/"
+      data-track="cta_clicked"
+      data-label="consult_online"
+      data-placement="second_opinion_page">Get a second opinion online</a
+    >
+    <a
+      class="btn btn-secondary"
+      href={bookingHref({ concern: 'Second opinion' })}
+      rel="noopener"
+      data-track="booking_started"
+      data-mode="clinic"
+      data-placement="second_opinion_page">Book at a clinic</a
+    >
+  </div>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/#diagnosis">How a diagnosis is made</a></li>
+    <li><a href="/conditions/">All conditions</a></li>
+    <li><a href="/consult-online/">How online consultation works</a></li>
+  </ul>
+</Page>

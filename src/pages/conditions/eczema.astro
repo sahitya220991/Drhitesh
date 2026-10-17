@@ -1,0 +1,128 @@
+---
+import Condition from '../../layouts/Condition.astro';
+---
+
+<Condition
+  title="Eczema"
+  description="Itchy, dry, inflamed skin — what drives eczema, what it's confused with, and how it's controlled. By Dr Hitesh Aggarwal, dermatologist, DMC 57994."
+  slug="eczema"
+  category="chronic"
+  reviewed="2026-10-17"
+  glance={[
+    ['Core problem', 'A damaged skin barrier plus inflammation'],
+    ['Most underused treatment', 'Moisturiser, in far larger quantities than most people use'],
+    ['Realistic goal', 'Long clear periods, with flares managed early'],
+  ]}
+  mistaken={[
+    ['Fungal infection', 'A raised advancing edge with central clearing, confirmed on a KOH mount. Steroid creams improve eczema and spread fungus.'],
+    ['Psoriasis', 'Thicker, silvery scale with sharply defined borders, typically on elbows and knees rather than in the flexures.'],
+    ['Scabies', 'Intense night-time itching, burrows in the finger webs and wrists, and usually other affected people in the household.'],
+    ['Contact dermatitis', 'Technically a form of eczema, but driven by a specific trigger. It will not settle until the trigger is identified, which may need patch testing.'],
+    ['Cutaneous T-cell lymphoma', 'Rare, but considered in adult-onset "eczema" that never fits the pattern and never responds. Needs a biopsy.'],
+  ]}
+  related={[
+    ['Psoriasis', '/conditions/psoriasis/'],
+    ['Fungal infections', '/conditions/fungal-infections/'],
+    ['Acne', '/conditions/acne/'],
+  ]}
+  faqs={[
+    {
+      q: 'Will my child grow out of it?',
+      a: 'Many children with atopic eczema improve substantially by adolescence, though the skin often stays dry and sensitive for life. Some continue into adulthood, and a smaller number develop it for the first time as adults. Good control in childhood makes the course easier either way.',
+    },
+    {
+      q: 'Are steroid creams dangerous?',
+      a: 'Used correctly they are safe and they are the mainstay of treatment. The real risks come from two opposite errors: using a potent steroid on the face continuously for months, and using too little too late out of fear so that flares are never properly controlled. The second is more common and causes more suffering.',
+    },
+    {
+      q: 'Is it caused by a food allergy?',
+      a: 'Usually not. Food allergy genuinely triggers eczema in a minority of young children, and testing is worthwhile when the history points to it. In most patients, eliminating foods does not help and risks nutritional problems in children. The history should drive testing, not the other way round.',
+    },
+    {
+      q: 'How much moisturiser should I actually be using?',
+      a: 'Far more than most people do — applied at least twice daily, and within minutes of bathing while the skin is still damp. An adult using enough will finish a large tub in a few weeks. This single change improves more cases than any other advice given in clinic.',
+    },
+    {
+      q: 'Can eczema be treated online?',
+      a: 'Yes, for most patients. It is visible in photographs and treatment is largely topical. Widespread or infected eczema, and cases where the diagnosis is uncertain, need an in-person visit.',
+    },
+  ]}
+>
+  <p>
+    Eczema — atopic dermatitis in its commonest form — is itchy, dry, inflamed skin arising from
+    two linked problems: a skin barrier that loses water and lets irritants in, and an immune
+    system that over-reacts once they do.
+  </p>
+
+  <p>
+    It runs in families alongside asthma and allergic rhinitis. In infants it favours the cheeks
+    and the outer limbs; in older children and adults it settles in the flexures — the inner
+    elbows, behind the knees, the neck, the wrists and the eyelids.
+  </p>
+
+  <h2>What makes it flare</h2>
+
+  <ul>
+    <li>Soap, detergent, bubble bath and anything that strips the skin</li>
+    <li>Hot water and long baths</li>
+    <li>Wool and synthetic fabric against the skin</li>
+    <li>Dry winter air and sudden temperature change</li>
+    <li>Sweat and heat in summer</li>
+    <li>Dust, pollen and pet dander in some patients</li>
+    <li>Stress and poor sleep — the itch-scratch cycle feeds itself</li>
+    <li>Infection, particularly staphylococcus, which turns an ordinary flare into a weeping one</li>
+  </ul>
+
+  <h2>How it is assessed</h2>
+
+  <p>
+    Clinically, in most cases. The distribution and history are characteristic, and a personal or
+    family history of asthma or allergic rhinitis supports it. A KOH mount is worth doing where
+    fungus is possible, particularly in the folds. Patch testing is arranged where a contact
+    trigger is suspected — a specific pattern, an occupational exposure, or eczema that never
+    settles despite good treatment.
+  </p>
+
+  <p>
+    Swabs are taken when skin looks infected: weeping, crusting, sudden worsening.
+  </p>
+
+  <h2>Treatment</h2>
+
+  <h3>Emollients — the part that is routinely underdone</h3>
+  <p>
+    Applied generously, at least twice a day, and within minutes of bathing. A thicker ointment
+    holds moisture better than a light lotion. This is not an optional supporting measure; it is
+    the base on which everything else works, and it reduces how much steroid is needed.
+  </p>
+
+  <h3>Topical steroids</h3>
+  <p>
+    Used at the right potency for the site, in courses to bring a flare under control, then
+    stepped down. Mild preparations for the face and folds, stronger ones for thicker skin.
+    Treating a flare properly and briefly is better than treating it half-heartedly for months.
+  </p>
+
+  <h3>Steroid-sparing options</h3>
+  <p>
+    Topical calcineurin inhibitors — tacrolimus, pimecrolimus — are useful on the face, eyelids
+    and folds and for longer-term maintenance where steroids are not suitable.
+  </p>
+
+  <h3>When it is more severe</h3>
+  <p>
+    Phototherapy, or systemic treatment including ciclosporin, methotrexate or newer targeted
+    biologic agents, with appropriate monitoring. Antibiotics where there is genuine infection,
+    not routinely.
+  </p>
+
+  <div class="note">
+    <h3>Managing the itch</h3>
+    <p>
+      Scratching damages the barrier further and drives the next flare, so breaking the cycle
+      matters as much as treating the rash. Keep nails short, use cool compresses, treat flares
+      early rather than waiting, and avoid the folk remedies that rely on heat or friction — they
+      feel satisfying and they make it worse.
+    </p>
+  </div>
+</Condition>

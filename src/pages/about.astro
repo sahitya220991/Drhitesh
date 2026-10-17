@@ -1,0 +1,154 @@
+---
+import Base from '../layouts/Base.astro';
+import { doctor, proof, bookingHref } from '../data/site.js';
+
+// Verified against original certificates. Do not inflate.
+const timeline = [
+  ['2010', 'MBBS', 'J.J.M. Medical College, Davangere (Rajiv Gandhi University of Health Sciences). All four phases cleared at first attempt.'],
+  ['2011–12', 'Rotating internship', 'Bapuji Hospital and Chigateri District General Hospital — general medicine, surgery, paediatrics, obstetrics and community medicine.'],
+  ['2012', 'Registered with the Delhi Medical Council', 'Registration No. 57994.'],
+  ['2017', 'DDVL — Dermatology, Venereology and Leprology', 'J.J.M. Medical College, Davangere. Passed at first attempt.'],
+  ['2017 onward', 'Dermatology practice in Delhi', 'Clinics in Narela and Rohini, and online consultations across India.'],
+];
+---
+
+<Base
+  title="About Dr Hitesh Aggarwal"
+  description="Dermatologist in Delhi. MBBS, DDVL, Delhi Medical Council Reg. 57994. Trained at J.J.M. Medical College, Davangere — four dermatology units, inpatient and outpatient."
+  slug="about"
+  pageType="about"
+>
+  <section class="wrap band" style="padding-bottom:0">
+    <div
+      style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:clamp(24px,3vw,48px); align-items:center"
+    >
+      <div>
+        <h1>Dr Hitesh Aggarwal</h1>
+        <p class="eyebrow" style="margin-top:12px">
+          Dermatologist · {doctor.qualifications} · {doctor.registration}
+        </p>
+        <p class="lead" style="margin-top:18px">
+          A doctor since {doctor.registeredSince} and a dermatologist since {doctor.practisingSince}.
+          Most of the practice is medical dermatology — conditions that have already been treated
+          once or twice without a clear diagnosis.
+        </p>
+        <div class="actions" style="margin-top:22px">
+          <a
+            class="btn btn-primary"
+            href="/consult-online/"
+            data-track="cta_clicked"
+            data-label="consult_online"
+            data-placement="about_hero">Consult online</a
+          >
+          <a
+            class="btn btn-secondary"
+            href={bookingHref()}
+            rel="noopener"
+            data-track="booking_started"
+            data-mode="clinic"
+            data-placement="about_hero">Book at a clinic</a
+          >
+        </div>
+      </div>
+      <div class="img-slot" style="aspect-ratio:4/5">Image · dr-hitesh-about.jpg</div>
+    </div>
+  </section>
+
+  <div class="prose" style="padding-block:clamp(32px,5vw,56px) 0">
+    <h2>Training</h2>
+    <p>
+      He completed his MBBS at J.J.M. Medical College, Davangere, clearing every phase at the
+      first attempt, followed by a rotating internship across general medicine, surgery,
+      paediatrics, obstetrics and community medicine.
+    </p>
+    <p>
+      He returned to J.J.M. for postgraduate training in Dermatology, Venereology and Leprology,
+      again passing at the first attempt. The dermatology department there runs four units within
+      a 2,900-bed teaching hospital, with dedicated cosmetology and dermatosurgery clinics
+      alongside general dermatology.
+    </p>
+    <p>
+      He managed inpatient wards as well as outpatient clinics — which means training on severe
+      and complicated disease, not only routine skin care. Aesthetic clinics rarely see the
+      inpatient side of dermatology at all.
+    </p>
+
+    <h2>Credentials</h2>
+    <table>
+      <tbody>
+        {
+          timeline.map(([year, what, detail]) => (
+            <tr>
+              <th scope="row" style="width:22%">{year}</th>
+              <td>
+                <strong style="color:var(--ink)">{what}</strong>
+                <br />
+                {detail}
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+
+    <p style="font-size:var(--t-small)">
+      Registration can be verified on the Delhi Medical Council register under number 57994.
+    </p>
+
+    <h2>How he works</h2>
+    <p>
+      Most patients arrive having already tried something that did not work — often several
+      things. The first job is establishing what the problem actually is, which sometimes means
+      revisiting a previous diagnosis. The second is explaining it clearly enough that the
+      treatment makes sense and gets followed.
+    </p>
+    <p>
+      Where a treatment carries real risks — isotretinoin, anti-androgens, long-term steroid use
+      — those are discussed before it starts rather than after.
+      <a href="/conditions/finasteride-dutasteride-side-effects/">
+        There is a page on exactly that for hair loss medication.
+      </a>
+    </p>
+    <p>
+      Second opinions make up a large part of the practice.
+      <a href="/second-opinions/">More on how those are approached.</a>
+    </p>
+
+    <h2>Teaching</h2>
+    <p>
+      He taught medical students and internees during his postgraduate training, and continues to
+      run facial aesthetics workshops for practising doctors.
+      <a href="/for-doctors/">Details for doctors.</a>
+    </p>
+
+    <h2>Where he practises</h2>
+    <p>
+      Two clinics in Delhi — <a href="/clinics/">Narela in the morning and Rohini in the
+      evening</a> — and <a href="/consult-online/">online consultations</a> for patients anywhere
+      in India.
+    </p>
+    <p>
+      Across the two clinics, {proof.totalReviews} Google reviews at an average of {proof.averageRating}.
+    </p>
+  </div>
+
+  <section class="band-mist" style="margin-top:48px">
+    <div class="prose band">
+      <h2 style="margin-top:0">Start here</h2>
+      <div class="grid grid-3">
+        <a class="card" href="/conditions/" data-track="internal_link_clicked" data-label="conditions">
+          <h4>Conditions</h4>
+          <p>Start with the problem you have.</p>
+        </a>
+        <a class="card" href="/consult-online/" data-track="internal_link_clicked" data-label="consult">
+          <h4>Consult online</h4>
+          <p>How a video consultation works.</p>
+        </a>
+        <a class="card" href="/second-opinions/" data-track="internal_link_clicked" data-label="second_opinion">
+          <h4>Second opinions</h4>
+          <p>Treated already, without improvement.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

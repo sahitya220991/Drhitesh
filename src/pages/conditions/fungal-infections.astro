@@ -1,0 +1,123 @@
+---
+import Condition from '../../layouts/Condition.astro';
+---
+
+<Condition
+  title="Fungal infections"
+  description="Ringworm that keeps coming back, usually because of steroid creams or treatment stopped too early. By Dr Hitesh Aggarwal, dermatologist, DMC 57994."
+  slug="fungal-infections"
+  category="chronic"
+  reviewed="2026-10-17"
+  glance={[
+    ['Confirmed by', 'A KOH mount — minutes, at the bedside'],
+    ['Commonest reason it returns', 'Treatment stopped when it looked better'],
+    ['Typical course length', 'Weeks, not days — and longer than it looks necessary'],
+  ]}
+  mistaken={[
+    ['Eczema', 'Itchy and scaly, but without the raised advancing edge and central clearing. Steroid creams help eczema and make fungus spread.'],
+    ['Psoriasis', 'Sharply defined, silvery scale, usually symmetrical on elbows, knees and scalp rather than spreading outward in rings.'],
+    ['Pityriasis rosea', 'A single larger patch followed days later by a shower of smaller oval patches along the rib lines. Self-limiting.'],
+    ['Granuloma annulare', 'A ring of firm bumps with no scale at all. Not an infection, and antifungals do nothing.'],
+    ['Steroid-modified fungal infection (tinea incognito)', 'A fungal infection whose appearance has been altered by steroid cream — the edge is lost and it looks like eczema. Extremely common in India.'],
+  ]}
+  related={[
+    ['Eczema', '/conditions/eczema/'],
+    ['Psoriasis', '/conditions/psoriasis/'],
+    ['Private and intimate concerns', '/conditions/intimate-concerns/'],
+  ]}
+  faqs={[
+    {
+      q: 'Why does my ringworm keep coming back?',
+      a: 'Three reasons, in order of frequency: treatment was stopped as soon as it looked better rather than completing the full course, a combination cream containing a steroid was used, or close contacts and clothing were not treated at the same time. Resistant strains exist and are a real problem in India, but they are diagnosed after the first three are ruled out.',
+    },
+    {
+      q: 'Are over-the-counter combination creams a problem?',
+      a: 'Yes, and this is the single biggest driver of difficult fungal infections in India. Creams combining an antifungal with a potent steroid give rapid relief from itching while allowing the fungus to spread more widely and deeply. The result is a larger, harder-to-treat infection with altered appearance. If you are using one, bring the tube.',
+    },
+    {
+      q: 'How long does treatment take?',
+      a: 'Longer than most people expect and longer than it looks necessary. Skin infections typically need several weeks of treatment, continued for a period after the rash has cleared. Nail infections take months. Stopping early is the commonest cause of recurrence.',
+    },
+    {
+      q: 'Do I need tablets, or will a cream do?',
+      a: 'Limited, recently started infections often respond to a cream alone. Widespread disease, scalp or nail involvement, and anything that has already failed topical treatment usually needs oral antifungals with the appropriate monitoring.',
+    },
+    {
+      q: 'Can this be treated online?',
+      a: 'A straightforward, clearly typical case can be. But confirming fungus needs a KOH mount, and if the appearance has been altered by steroid cream the diagnosis genuinely cannot be made from a photograph. In those cases you will be advised to be seen in person.',
+    },
+  ]}
+>
+  <p>
+    Superficial fungal infection — tinea, commonly called ringworm — produces itchy, scaly patches
+    with a raised advancing edge and relative clearing in the centre. It spreads outward, and it
+    spreads between people and through shared clothing, towels and bedding.
+  </p>
+
+  <p>
+    In India over the last decade these infections have become markedly harder to treat. Wider
+    areas, longer courses, more recurrence. Two things explain most of it: easy availability of
+    combination creams containing potent steroids, and incomplete courses of treatment.
+  </p>
+
+  <h2>Where it appears</h2>
+
+  <ul>
+    <li><strong>Tinea corporis</strong> — body, trunk and limbs</li>
+    <li><strong>Tinea cruris</strong> — groin and inner thighs, very common in hot humid months</li>
+    <li><strong>Tinea pedis</strong> — feet and between the toes</li>
+    <li><strong>Tinea capitis</strong> — scalp, mostly in children; always needs oral treatment</li>
+    <li><strong>Onychomycosis</strong> — nails; thickened, discoloured, crumbling. Needs months of treatment</li>
+    <li><strong>Pityriasis versicolor</strong> — pale or light brown flat patches on the chest and back. A different organism and a different treatment</li>
+  </ul>
+
+  <h2>How it is confirmed</h2>
+
+  <p>
+    A <strong>KOH mount</strong> takes a few minutes. A scraping from the edge of the patch is
+    examined under the microscope, and fungal filaments are either there or they are not. It is
+    cheap, it is quick, and skipping it is why so many rashes are treated for months with the
+    wrong cream.
+  </p>
+
+  <p>
+    Where the infection has been altered by steroid use, or has failed appropriate treatment, a
+    fungal culture identifies the species and guides which oral agent to use.
+  </p>
+
+  <h2>Treatment</h2>
+
+  <h3>Topical</h3>
+  <p>
+    A plain antifungal — never a combination containing a steroid — applied to the patch and a
+    margin of normal skin beyond its edge, continued for a period after it looks clear.
+  </p>
+
+  <h3>Oral</h3>
+  <p>
+    Terbinafine or itraconazole for widespread, recurrent, scalp or nail disease. Course length
+    depends on the site and extent, and liver function may be checked depending on the agent and
+    duration.
+  </p>
+
+  <h3>The part that actually prevents recurrence</h3>
+  <ul>
+    <li>Treat everyone in the household who is affected, at the same time</li>
+    <li>Hot-wash clothing, towels and bedlinen; dry in sunlight where possible</li>
+    <li>Loose cotton clothing; change out of damp clothes promptly</li>
+    <li>Dry carefully in the groin, under the arms and between the toes</li>
+    <li>Do not share towels, combs or footwear</li>
+    <li>Complete the full course even after it looks clear</li>
+  </ul>
+
+  <div class="note note-warn">
+    <h3>Combination creams</h3>
+    <p>
+      Creams mixing an antifungal, an antibiotic and a potent steroid are sold widely and used for
+      almost any itchy rash. They relieve itching within a day, which is why people trust them, and
+      they allow fungus to spread wider and deeper while changing its appearance so the diagnosis
+      is missed. If you have one at home, bring it rather than discarding it — knowing exactly what
+      was used changes the treatment plan.
+    </p>
+  </div>
+</Condition>

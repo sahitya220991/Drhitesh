@@ -1,0 +1,129 @@
+---
+import Condition from '../../layouts/Condition.astro';
+---
+
+<Condition
+  title="Melasma"
+  description="Symmetrical brown patches on the face — what drives melasma, what it is confused with, and what treatment realistically achieves. By Dr Hitesh Aggarwal, dermatologist."
+  slug="melasma"
+  category="pigmentation"
+  reviewed="2026-10-17"
+  glance={[
+    ['Main driver', 'Sun and visible light, on a hormonal background'],
+    ['Realistic goal', 'Controlled and much lighter, not permanently gone'],
+    ['Without daily sunscreen', 'Any treatment will fail'],
+  ]}
+  mistaken={[
+    ['Post-inflammatory hyperpigmentation', 'Follows a specific rash, acne spot or injury, and sits exactly where that was. It fades on its own over months; melasma does not.'],
+    ['Lichen planus pigmentosus', 'Slate-grey to brown pigmentation, often on the sides of the face and neck. Needs a different approach and sometimes a biopsy.'],
+    ['Riehl melanosis / pigmented contact dermatitis', 'Caused by an ingredient in a cosmetic, hair dye or fragrance. Will not clear until the trigger is identified and stopped.'],
+    ['Drug-induced pigmentation', 'Some medicines darken skin. The history gives this away, and the pattern is often different.'],
+    ['Naevus of Ota or Hori naevus', 'Deeper, bluish-grey pigment. Treated with lasers that are wrong for melasma.'],
+  ]}
+  related={[
+    ['Pigmentation and uneven tone', '/conditions/pigmentation/'],
+    ['Acne', '/conditions/acne/'],
+    ['PCOS skin and hair', '/conditions/pcos/'],
+  ]}
+  dietChart={['Diet for pigmentation', '/diet/pigmentation/']}
+  faqs={[
+    {
+      q: 'Can melasma be cured permanently?',
+      a: 'No, and anyone promising that is selling something. Melasma is a chronic condition driven by sun and hormones in genetically predisposed skin. It can be lightened substantially and held there with maintenance, but it returns if sun protection and maintenance stop.',
+    },
+    {
+      q: 'Is laser the answer?',
+      a: 'Sometimes, and carelessly used lasers are one of the commonest ways melasma gets worse. Aggressive settings cause rebound pigmentation that is harder to treat than the original. Laser toning has a role, in the right case, at the right settings, after topical treatment has started working.',
+    },
+    {
+      q: 'Does sunscreen actually matter that much?',
+      a: 'It is the single most important part of treatment. Melasma is also triggered by visible light, not just UV, so a tinted sunscreen containing iron oxide protects better than a clear one. Daily use, reapplied, including indoors near windows.',
+    },
+    {
+      q: 'Will it go away after pregnancy?',
+      a: 'Melasma that starts in pregnancy often fades in the months after delivery, but not always, and it tends to return in later pregnancies or on hormonal contraception. Treatment during pregnancy and breastfeeding is limited to what is safe, which rules out several standard options.',
+    },
+    {
+      q: 'Can this be managed online?',
+      a: 'Yes, for most patients. Melasma is visible in daylight photographs and treatment is topical plus sun protection. An in-person visit helps where the diagnosis is uncertain or a procedure is being considered.',
+    },
+  ]}
+>
+  <p>
+    Melasma is symmetrical brown or greyish-brown patching, usually across the cheeks, forehead,
+    upper lip and bridge of the nose. It is more common in women, more common in Indian and other
+    deeper skin tones, and it is driven by a combination of sun exposure, visible light, heat and
+    hormonal influence in skin that is genetically prone to it.
+  </p>
+
+  <p>
+    The single most useful thing to understand at the start:
+    <strong>this is a condition that is controlled, not cured.</strong> Treatment can lighten it
+    very substantially. It will come back without maintenance and sun protection. A plan sold on
+    the promise of permanent removal will disappoint.
+  </p>
+
+  <h2>What makes it worse</h2>
+
+  <ul>
+    <li>Sun exposure, including on cloudy days and through car and office windows</li>
+    <li>Visible light, which ordinary clear sunscreens do not block</li>
+    <li>Heat — cooking over a flame, long sun exposure, hot work environments</li>
+    <li>Pregnancy, hormonal contraception and hormone treatment</li>
+    <li>Thyroid disease in some patients</li>
+    <li>Irritation from scrubs, strong peels or over-aggressive treatment</li>
+  </ul>
+
+  <h2>How it is assessed</h2>
+
+  <p>
+    Examination establishes the pattern and distribution, and dermoscopy helps judge whether the
+    pigment sits superficially, deeper, or both — which changes how well it will respond and how
+    cautious treatment needs to be. Thyroid function is checked where the history suggests it.
+  </p>
+
+  <p>
+    Any cosmetic, hair dye or cream in daily use is reviewed, because pigmented contact dermatitis
+    looks very similar and will not improve until the trigger is removed.
+  </p>
+
+  <h2>Treatment</h2>
+
+  <h3>Sun protection — non-negotiable</h3>
+  <p>
+    A broad-spectrum sunscreen with iron oxide for visible light protection, applied every morning
+    and reapplied through the day. Everything else on this list depends on this being done
+    properly. Treatment without it is money wasted.
+  </p>
+
+  <h3>Topical lightening agents</h3>
+  <p>
+    Hydroquinone remains the most effective, used in courses rather than continuously. Combination
+    creams with a retinoid and a mild steroid work well for a defined period. Non-hydroquinone
+    options — azelaic acid, kojic acid, tranexamic acid, cysteamine — are useful for maintenance
+    and for patients who cannot use hydroquinone.
+  </p>
+
+  <h3>Oral tranexamic acid</h3>
+  <p>
+    Helpful in resistant melasma, with a clear caution: it is not suitable for anyone with a
+    history of clots, and it needs assessment before it is prescribed.
+  </p>
+
+  <h3>Peels and lasers</h3>
+  <p>
+    Gentle peels help as an addition once topical treatment is established. Laser toning has a
+    place in selected patients at conservative settings. Both can worsen melasma if used too
+    aggressively or too early, which is why they come after topical treatment rather than instead
+    of it.
+  </p>
+
+  <div class="note">
+    <h3>Why melasma so often gets worse with treatment</h3>
+    <p>
+      Almost always one of three things: aggressive laser or peel settings, a fairness cream
+      containing a steroid, or stopping sunscreen once it started improving. Slow and steady, with
+      sun protection held throughout, beats anything fast.
+    </p>
+  </div>
+</Condition>

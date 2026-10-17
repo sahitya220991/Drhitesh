@@ -1,0 +1,493 @@
+---
+import Base from '../layouts/Base.astro';
+import { doctor, clinics, proof, site, bookingHref } from '../data/site.js';
+
+const concerns = [
+  ['My hair is falling out', '/conditions/hair-loss-men/', 'Thinning at the crown or hairline, sudden shedding, bald patches, dandruff that keeps returning.'],
+  ['Pimples that keep coming back', '/conditions/acne/', 'Acne at any age, painful bumps under the skin, and the marks and pits left behind.'],
+  ['Dark patches on my face', '/conditions/melasma/', 'Melasma, dark circles, uneven tone, and darkening left behind after a rash or acne.'],
+  ["Patches that won't go away", '/conditions/psoriasis/', 'Scaly plaques, white spots, dry cracking skin — psoriasis, vitiligo and eczema.'],
+  ["It itches and I can't stop scratching", '/conditions/fungal-infections/', 'Ringworm and other fungal infections, hives, and skin damaged by steroid creams.'],
+  ["Something I'd rather not discuss", '/conditions/intimate-concerns/', 'Genital and intimate skin problems, examined and treated matter-of-factly.'],
+];
+
+const diagnosis = [
+  ['History, taken properly', 'How long, what changed before it started, what has already been used on it — including creams bought without prescription. Steroid misuse is common and changes the whole picture.'],
+  ['Clinical examination', 'The pattern, distribution and surface of a lesion carry most of the answer. Nails, scalp and mucosa are examined too, because several conditions declare themselves there first.'],
+  ['Dermoscopy and trichoscopy', 'Magnified examination of skin and scalp. It separates conditions that look identical to the naked eye — and it is how hair loss should be assessed before any treatment is started.'],
+  ['Tests, only where indicated', 'Thyroid, ferritin, vitamin D or hormonal profile when the history points there — not a routine panel for everyone. You will be told what each test is looking for.'],
+  ['KOH mount for suspected fungal infection', 'A simple bedside test that confirms or rules out fungus in minutes. Skipping it is why so many rashes are treated for months with the wrong cream.'],
+  ["Biopsy where the diagnosis isn't clear", 'A small sample under local anaesthetic, read by a pathologist. Uncommon, but the right step when the appearance is atypical or a condition has not responded as expected.'],
+];
+
+const bring = [
+  'Every cream, tablet or oil you are using, including ones bought without a prescription',
+  'Previous prescriptions and blood reports',
+  'Photographs of the problem at its worst',
+  'Roughly when it started and what has changed since',
+];
+
+const outlook = [
+  ['Usually clears fully', 'Fungal infections, bacterial infections, scabies, molluscum, most drug and contact reactions.'],
+  ['Can be brought under control', 'Acne, melasma — treatable to a clear state, with maintenance to hold it there.'],
+  ['Managed long term, not cured', 'Pattern hair loss, psoriasis, eczema, vitiligo. Anyone promising a permanent cure for these is selling something.'],
+];
+
+const steps = [
+  ['Book a slot', 'Pick a time, confirm your identity and consent, and pay the fee. You get a confirmation on WhatsApp.'],
+  ['Send photographs', 'Clear photos of the affected area in daylight, plus any reports and the names of creams or tablets already used.'],
+  ['The consultation', '15–20 minutes on video. History, examination of what can be seen, the likely diagnosis, and what it is not.'],
+  ['Plan and prescription', 'A written plan and a digital prescription for what the telemedicine rules permit, with a review date.'],
+];
+
+const worksOnline = [
+  'Acne and post-acne marks',
+  'Hair fall where the pattern is visible in photographs',
+  'Ongoing treatment reviews and dose changes',
+  'Second opinions on an existing prescription',
+  'Chronic disease already diagnosed — psoriasis, eczema',
+];
+
+const needsClinic = [
+  'Anything needing dermoscopy, a KOH mount or a biopsy',
+  'A mole or growth that is changing',
+  'Procedures, injections and minor surgery',
+  'Widespread or rapidly worsening disease',
+  'Any case where photographs leave real doubt',
+];
+
+const reviews = [
+  ['Two years of anti-fungal creams from different doctors. He did a test the same day and told me it was not fungal at all. It cleared in six weeks.', 'Steroid-induced dermatitis'],
+  ['He examined my scalp under a device and showed me what he was seeing, then explained why the supplements I was taking would not help.', 'Hair fall'],
+  ['I had been to a big hospital before this. This was the first time someone explained what the condition was and how long it would take.', 'Molluscum contagiosum'],
+];
+
+const charts = [
+  ['Hair fall diet chart', '/diet/hair-fall/', 'Protein, iron and what actually matters for shedding.'],
+  ['Acne diet chart', '/diet/acne/', 'Dairy, sugar load and the foods wrongly blamed.'],
+  ['Pigmentation diet chart', '/diet/pigmentation/', 'Sun, nutrition and realistic expectations.'],
+  ['PCOS diet chart', '/diet/pcos/', 'Eating patterns for PCOS-related acne and hair changes.'],
+];
+---
+
+<Base
+  title="Dermatologist — skin and hair treated after a proper diagnosis"
+  description="Dr Hitesh Aggarwal, MBBS DDVL, DMC 57994. Online dermatology consultations across India, and clinics in Narela and Rohini, Delhi. Diagnosis first, then treatment."
+  slug="home"
+  pageType="home"
+>
+  <!-- ═══ 1 · Hero ═══════════════════════════════════════════ -->
+  <section
+    id="top"
+    class="wrap"
+    style="padding-block:clamp(36px,7vw,76px) clamp(28px,4vw,44px); display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:clamp(28px,4vw,56px); align-items:center"
+  >
+    <div>
+      <p class="eyebrow" style="margin-bottom:14px">
+        {doctor.name} · Dermatologist · {doctor.qualifications}
+      </p>
+      <h1>Most skin and hair problems get treated before they're understood.</h1>
+      <p class="lead" style="margin-top:18px">
+        The diagnosis comes first here. Clinical examination, dermoscopy or trichoscopy where it's
+        needed, and the tests that are actually indicated — then a treatment plan explained to you in
+        plain language.
+      </p>
+      <div class="actions" style="margin-top:26px">
+        <a
+          class="btn btn-primary"
+          href="/consult-online/"
+          data-track="cta_clicked"
+          data-label="consult_online"
+          data-placement="hero">Consult online</a
+        >
+        <a
+          class="btn btn-secondary"
+          href={bookingHref()}
+          rel="noopener"
+          data-track="booking_started"
+          data-mode="clinic"
+          data-placement="hero">Book at a clinic</a
+        >
+      </div>
+      <p style="margin-top:18px; font-size:var(--t-small)">
+        Online consultations for patients anywhere in India. Two clinics in Delhi — Narela and
+        Rohini.
+      </p>
+    </div>
+
+    <div class="img-slot" style="aspect-ratio:4/5">Image 1 · Hero — dr-hitesh-portrait.jpg</div>
+  </section>
+
+  <!-- ═══ 2 · Credentials band — the one warm element ════════ -->
+  <section style="background:var(--sand)">
+    <div
+      class="wrap"
+      style="padding-block:18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px 32px"
+    >
+      <p style="color:var(--ink); font-size:var(--t-small)">
+        <strong>{doctor.qualifications}</strong> (Dermatology, Venereology &amp; Leprology)
+      </p>
+      <p style="color:var(--ink); font-size:var(--t-small)">
+        <strong>{doctor.registration}</strong>
+      </p>
+      <p style="color:var(--ink); font-size:var(--t-small)">
+        Practising dermatologist since <strong>{doctor.practisingSince}</strong>
+      </p>
+      <p style="color:var(--ink); font-size:var(--t-small)">
+        <strong>{proof.totalReviews} Google reviews</strong> across two clinics · {proof.averageRating} average
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ 3 · Concerns ═══════════════════════════════════════ -->
+  <section id="concerns" class="wrap band">
+    <h2>What's bothering you?</h2>
+    <p class="lead" style="margin-top:12px">
+      Start with the problem, not the procedure. Each page covers what it is, what it's commonly
+      mistaken for, and how it's diagnosed.
+    </p>
+    <div class="grid grid-3" style="margin-top:28px">
+      {
+        concerns.map(([label, href, note]) => (
+          <a class="card" href={href} data-track="internal_link_clicked" data-label={label} data-placement="concern_grid">
+            <h4>{label}</h4>
+            <p>{note}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ═══ 4 · How a diagnosis is made ════════════════════════ -->
+  <section id="diagnosis" class="band-mist">
+    <div class="wrap band">
+      <h2>How a diagnosis is made</h2>
+      <p class="lead" style="margin-top:12px">
+        Treatment is only as good as the diagnosis behind it. This is what happens before anything is
+        prescribed — in clinic, and as far as it can be done over video.
+      </p>
+
+      <div
+        style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:clamp(24px,3vw,44px); align-items:start; margin-top:30px"
+      >
+        <ol style="list-style:none; display:grid; gap:20px">
+          {
+            diagnosis.map(([label, note], i) => (
+              <li style="display:flex; gap:14px; align-items:flex-start">
+                <span class="step-n">{i + 1}</span>
+                <div>
+                  <h4>{label}</h4>
+                  <p style="font-size:var(--t-small); margin-top:4px">{note}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+
+        <div class="img-slot" style="aspect-ratio:auto; min-height:100%; position:sticky; top:24px">
+          Image 2 · Diagnosis — trichoscopy.jpg
+        </div>
+      </div>
+
+      <div
+        style="margin-top:36px; padding:24px; background:var(--paper); border-left:3px solid var(--signal); border-radius:var(--radius)"
+      >
+        <h4 style="font-size:19px; margin-bottom:8px">A wrong diagnosis costs months</h4>
+        <p>
+          Anti-fungals for a rash that isn't fungal. Supplements for hair loss that is hormonal.
+          Steroid creams that suppress a problem while making it worse. Each delays the treatment
+          that would have worked. Getting the diagnosis right first is the shortest route to clear
+          skin and healthy hair.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 5 · Second opinion ═════════════════════════════════ -->
+  <section id="second-opinion" class="wrap band">
+    <div
+      style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:clamp(24px,3vw,44px); align-items:center"
+    >
+      <div>
+        <h2 style="font-size:var(--t-h3)">
+          Already been treated two or three times without improvement?
+        </h2>
+        <p style="margin-top:14px">
+          That is most of the practice. Bring your prescriptions, the names of what you have used,
+          and any reports. The first job is to establish what the condition actually is — which
+          sometimes means the earlier diagnosis was right and the treatment simply needed longer.
+        </p>
+        <div class="actions" style="margin-top:22px">
+          <a
+            class="btn btn-primary"
+            href="/consult-online/"
+            data-track="cta_clicked"
+            data-label="second_opinion"
+            data-placement="second_opinion">Get a second opinion online</a
+          >
+        </div>
+      </div>
+
+      <div>
+        <div class="img-slot" style="aspect-ratio:16/10; margin-bottom:20px">
+          Image 3 · Second opinion — consultation.jpg
+        </div>
+        <h4 style="margin-bottom:10px">Bring with you</h4>
+        <ul style="list-style:none; display:grid; gap:8px">
+          {
+            bring.map((item) => (
+              <li style="display:flex; gap:10px; font-size:var(--t-small); color:var(--ink-2)">
+                <span style="color:var(--signal); font-weight:600">—</span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6 · What can and cannot be cured ═══════════════════ -->
+  <section class="band-ink">
+    <div class="wrap band">
+      <h2 style="font-size:var(--t-h3)">What can be controlled, and what cannot be cured</h2>
+      <p class="lead" style="margin-top:12px">
+        Some conditions settle completely. Others can be kept quiet for years but return if treatment
+        stops. You will be told which of the two you have at the first consultation, before any money
+        is spent on a plan.
+      </p>
+      <div class="grid grid-3" style="margin-top:30px">
+        {
+          outlook.map(([label, note]) => (
+            <div style="border-top:2px solid var(--signal-tint); padding-top:16px">
+              <h4 style="color:#fff; margin-bottom:8px">{label}</h4>
+              <p style="font-size:var(--t-small)">{note}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 7 · Consult online ═════════════════════════════════ -->
+  <section id="online" class="wrap band">
+    <h2>Consult online, from anywhere in India</h2>
+    <p class="lead" style="margin-top:12px">
+      A video consultation with the same approach as the clinic. Conducted under India's Telemedicine
+      Practice Guidelines — identity verification and recorded consent are part of the booking.
+    </p>
+
+    <div class="grid grid-4" style="margin-top:30px">
+      {
+        steps.map(([label, note], i) => (
+          <div class="card" style="background:var(--mist-2); border-color:var(--line-2)">
+            <p class="eyebrow" style="margin-bottom:8px; color:var(--signal)">Step {i + 1}</p>
+            <h4 style="margin-bottom:6px">{label}</h4>
+            <p>{note}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="grid grid-2" style="margin-top:28px; gap:24px">
+      <div>
+        <h4 style="margin-bottom:12px">Works well online</h4>
+        <ul style="list-style:none; display:grid; gap:9px">
+          {
+            worksOnline.map((item) => (
+              <li style="display:flex; gap:10px; font-size:var(--t-small); color:var(--ink-2)">
+                <span style="color:var(--signal); font-weight:600">✓</span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div>
+        <h4 style="margin-bottom:12px">Needs an in-person visit</h4>
+        <ul style="list-style:none; display:grid; gap:9px">
+          {
+            needsClinic.map((item) => (
+              <li style="display:flex; gap:10px; font-size:var(--t-small); color:var(--ink-2)">
+                <span style="color:var(--ink-2); font-weight:600">—</span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <p style="font-size:var(--t-small); margin-top:14px; font-style:italic">
+          If your problem falls here, you'll be told at the start and the consultation fee will not
+          be taken.
+        </p>
+      </div>
+    </div>
+
+    <div
+      style="margin-top:32px; padding:28px; background:var(--mist); border-radius:var(--radius); text-align:center"
+    >
+      <h4 style="font-size:20px; margin-bottom:8px">Ready to book?</h4>
+      <p style="max-width:52ch; margin-inline:auto">
+        Choose a time, confirm your identity and consent. Available slots and the consultation fee
+        are shown on the next step, before you pay. Confirmation and a link for the video call arrive
+        on WhatsApp.
+      </p>
+      <div class="actions" style="justify-content:center; margin-top:20px">
+        <a
+          class="btn btn-primary"
+          href={bookingHref({ mode: 'video' })}
+          rel="noopener"
+          data-track="booking_started"
+          data-mode="video"
+          data-placement="online_section">Book an online consultation</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 8 · About ══════════════════════════════════════════ -->
+  <section id="about" class="band-mist">
+    <div class="wrap band">
+      <div
+        style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:clamp(24px,3vw,44px); align-items:center"
+      >
+        <div class="img-slot" style="aspect-ratio:4/5">Image 4 · About — dr-hitesh-about.jpg</div>
+        <div>
+          <h2 style="font-size:var(--t-h3)">About {doctor.name}</h2>
+          <p style="margin-top:14px">
+            A doctor since {doctor.registeredSince} and a dermatologist since {doctor.practisingSince},
+            with both MBBS and DDVL cleared at first attempt. His training at J.J.M. Medical College,
+            Davangere covered four dermatology units, including cosmetology and dermatosurgery, and
+            inpatient wards as well as outpatient clinics.
+          </p>
+          <p style="margin-top:12px">
+            He also teaches other doctors, running facial aesthetics workshops. In practice, his work
+            is mostly medical dermatology: skin and hair conditions that have already been treated
+            once or twice without a clear diagnosis.
+          </p>
+
+          <div class="grid grid-2" style="margin-top:22px; gap:16px">
+            <div style="border-top:2px solid var(--line); padding-top:12px">
+              <p class="eyebrow" style="margin-bottom:4px">Qualified</p>
+              <p style="color:var(--ink); font-weight:600">{doctor.qualifications}</p>
+            </div>
+            <div style="border-top:2px solid var(--line); padding-top:12px">
+              <p class="eyebrow" style="margin-bottom:4px">Registered</p>
+              <p style="color:var(--ink); font-weight:600">{doctor.registration}</p>
+            </div>
+          </div>
+
+          <p style="margin-top:20px">
+            <a href="/about/" data-track="internal_link_clicked" data-label="about"
+              >Full credentials and timeline →</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 9 · Reviews ════════════════════════════════════════ -->
+  <section class="wrap band">
+    <div
+      style="display:flex; flex-wrap:wrap; gap:20px; align-items:baseline; justify-content:space-between"
+    >
+      <div>
+        <h2 style="font-size:var(--t-h3)">What patients say</h2>
+        <p style="margin-top:8px">
+          A few of the {proof.totalReviews} Google reviews across the Narela and Rohini clinics.
+        </p>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px">
+        <span style="font-family:var(--serif); font-size:44px; line-height:1; color:var(--ink)"
+          >{proof.averageRating}</span
+        >
+        <div>
+          <div style="color:var(--signal); letter-spacing:2px" aria-hidden="true">★★★★★</div>
+          <p style="font-size:var(--t-micro)">{proof.totalReviews} Google reviews</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-3" style="margin-top:26px">
+      {
+        reviews.map(([quote, condition]) => (
+          <figure class="card" style="background:var(--mist-2); border-color:var(--line-2)">
+            <blockquote style="font-size:var(--t-small); color:var(--ink-2); line-height:1.6">
+              {quote}
+            </blockquote>
+            <figcaption class="eyebrow" style="margin-top:14px">{condition} · Google review</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+
+    <p style="font-size:var(--t-micro); margin-top:16px">
+      Reviews describe individual experiences. Outcomes differ between patients, and no result is
+      guaranteed.
+    </p>
+  </section>
+
+  <!-- ═══ 10 · Patient resources ═════════════════════════════ -->
+  <section class="band-mist">
+    <div class="wrap band">
+      <h2 style="font-size:var(--t-h3)">Patient resources</h2>
+      <p class="lead" style="margin-top:12px">
+        Practical diet charts built around Indian food, free to read, download or share. Honest about
+        where the evidence is thin.
+      </p>
+      <div class="grid grid-3" style="margin-top:26px">
+        {
+          charts.map(([label, href, note]) => (
+            <a class="card" href={href} data-track="internal_link_clicked" data-label={label} data-placement="resources">
+              <h4>{label}</h4>
+              <p>{note}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 11 · Clinics ═══════════════════════════════════════ -->
+  <section id="clinics" class="wrap band">
+    <h2 style="font-size:var(--t-h3)">Clinics in Delhi</h2>
+    <div class="grid grid-2" style="margin-top:24px; gap:20px">
+      {
+        clinics.map((c) => (
+          <div class="card">
+            <h4 style="font-size:20px; margin-bottom:8px">{c.name}</h4>
+            <p style="font-size:var(--t-small)">{c.address}</p>
+            <p style="font-size:var(--t-small); color:var(--ink); font-weight:600; margin-top:8px">
+              {c.hours}
+            </p>
+            <p style="font-size:var(--t-micro); margin-top:4px">
+              {c.rating} ★ · {c.reviewCount} Google reviews
+            </p>
+            <div class="actions" style="margin-top:16px">
+              <a
+                class="btn btn-secondary"
+                style="padding:9px 18px; min-height:44px"
+                href={`tel:${site.phone}`}
+                data-track="phone_clicked"
+                data-clinic={c.slug}
+                data-placement="clinics"
+              >
+                Call
+              </a>
+              <a
+                class="btn btn-secondary"
+                style="padding:9px 18px; min-height:44px"
+                href={c.mapsUrl}
+                rel="noopener"
+                data-track="clinic_map_opened"
+                data-clinic={c.slug}
+              >
+                Directions
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Base>

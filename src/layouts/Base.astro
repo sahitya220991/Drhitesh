@@ -1,0 +1,274 @@
+---
+import '../styles/global.css';
+import { site, doctor, clinics, proof, bookingHref } from '../data/site.js';
+
+const {
+  title,
+  description,
+  slug = '',
+  pageType = 'page',
+  category = 'general',
+  noindex = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const fullTitle = `${title} | ${site.fullTitle}`;
+
+// Physician + both clinics, on every page.
+// No AggregateRating: Google disallows self-serving review markup
+// on your own site and it risks a manual action.
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Physician',
+  name: doctor.name,
+  medicalSpecialty: 'Dermatology',
+  url: site.url,
+  telephone: site.phone,
+  address: clinics.map((c) => ({
+    '@type': 'PostalAddress',
+    streetAddress: c.address,
+    addressLocality: c.locality,
+    addressRegion: 'Delhi',
+    postalCode: c.postalCode,
+    addressCountry: 'IN',
+  })),
+  location: clinics.map((c) => ({
+    '@type': 'MedicalClinic',
+    name: `${doctor.name} — ${c.name}`,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: c.address,
+      addressLocality: c.locality,
+      postalCode: c.postalCode,
+      addressCountry: 'IN',
+    },
+    geo: { '@type': 'GeoCoordinates', latitude: c.lat, longitude: c.lng },
+    openingHours: c.hoursSchema,
+    telephone: site.phone,
+  })),
+};
+
+const nav = [
+  ['Conditions', '/conditions/'],
+  ['Second opinion', '/second-opinions/'],
+  ['Diet charts', '/diet/'],
+  ['About', '/about/'],
+  ['Clinics', '/clinics/'],
+];
+
+const footerCols = [
+  [
+    'Conditions',
+    [
+      ['Hair loss', '/conditions/hair-loss-men/'],
+      ['Acne & scars', '/conditions/acne/'],
+      ['Pigmentation', '/conditions/melasma/'],
+      ['Psoriasis & eczema', '/conditions/psoriasis/'],
+      ['Fungal infections', '/conditions/fungal-infections/'],
+    ],
+  ],
+  [
+    'Practice',
+    [
+      ['Consult online', '/consult-online/'],
+      ['Second opinions', '/second-opinions/'],
+      ['How diagnosis works', '/#diagnosis'],
+      ['About & credentials', '/about/'],
+      ['Clinics', '/clinics/'],
+      ['Diet charts', '/diet/'],
+      ['For doctors', '/for-doctors/'],
+    ],
+  ],
+  [
+    'Policies',
+    [
+      ['Privacy', '/privacy/'],
+      ['Terms', '/terms/'],
+      ['Medical disclaimer', '/disclaimer/'],
+      ['Telemedicine consent', '/telemedicine-consent/'],
+    ],
+  ],
+];
+---
+
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_IN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#15213B" />
+
+    <!-- Fonts are self-hosted, so the two heaviest are preloaded
+         rather than discovered after the CSS parses. -->
+    <link rel="preload" href="/fonts/literata-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/mukta-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <slot name="head" />
+  </head>
+
+  <body>
+    <a href="#main" class="visually-hidden">Skip to content</a>
+
+    <header style="border-bottom:1px solid var(--line-2); background:var(--paper)">
+      <div
+        class="wrap"
+        style="display:flex; align-items:center; justify-content:space-between; gap:24px; padding-block:14px"
+      >
+        <a href="/" style="text-decoration:none; color:var(--ink); line-height:1.2">
+          <strong style="font-family:var(--serif); font-size:19px; display:block; letter-spacing:-0.02em">
+            {doctor.name}
+          </strong>
+          <!-- Always paired with "Dermatologist": there is another
+               Dr Hitesh Aggarwal (ENT) practising in Rohini. -->
+          <span class="eyebrow">Dermatologist</span>
+        </a>
+
+        <nav aria-label="Main" class="mainnav">
+          {nav.map(([label, href]) => <a href={href}>{label}</a>)}
+          <a
+            class="btn btn-primary"
+            style="padding:9px 18px; min-height:0"
+            href="/consult-online/"
+            data-track="cta_clicked"
+            data-label="consult_online"
+            data-placement="header">Consult online</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer style="background:var(--ink); color:#fff; margin-top:0">
+      <div class="wrap" style="padding-block:48px 28px">
+        <div class="grid grid-3" style="gap:32px">
+          {
+            footerCols.map(([heading, links]) => (
+              <div>
+                <p class="eyebrow" style="color:var(--on-dark); margin-bottom:12px">{heading}</p>
+                <ul style="list-style:none">
+                  {links.map(([label, href]) => (
+                    <li style="margin-bottom:8px">
+                      <a href={href} style="color:#fff; text-decoration:none; font-size:var(--t-small)">
+                        {label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+
+          <div>
+            <p class="eyebrow" style="color:var(--on-dark); margin-bottom:12px">Contact</p>
+            <ul style="list-style:none; font-size:var(--t-small)">
+              <li style="margin-bottom:8px">
+                <a
+                  href={`tel:${site.phone}`}
+                  style="color:#fff; text-decoration:none"
+                  data-track="phone_clicked"
+                  data-placement="footer">{site.phoneDisplay}</a
+                >
+              </li>
+              <li style="margin-bottom:8px">
+                <a
+                  href={bookingHref()}
+                  rel="noopener"
+                  style="color:#fff; text-decoration:none"
+                  data-track="whatsapp_clicked"
+                  data-placement="footer">WhatsApp</a
+                >
+              </li>
+              <li style="color:var(--on-dark)">Narela · Rohini, Delhi</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid rgba(255,255,255,0.15); margin-top:36px; padding-top:24px">
+          <p style="color:#fff; font-weight:600; font-size:var(--t-small); margin-bottom:4px">
+            {doctor.name} · Dermatologist
+          </p>
+          <p style="color:var(--on-dark); font-size:var(--t-small); margin-bottom:16px">
+            {doctor.qualifications} · {doctor.registration} · Practising dermatologist since {doctor.practisingSince}
+          </p>
+          <p style="color:var(--on-dark); font-size:var(--t-micro); line-height:1.6; max-width:70ch">
+            The information on this site is general education and does not replace a consultation. It
+            should not be used to diagnose or treat a condition. Outcomes vary between individuals.
+            Please consult a qualified doctor about your own case.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <nav class="stickybar" aria-label="Quick actions">
+      <a href={`tel:${site.phone}`} data-track="phone_clicked" data-placement="sticky">Call</a>
+      <a href={bookingHref()} rel="noopener" data-track="whatsapp_clicked" data-placement="sticky">WhatsApp</a>
+      <a href="/consult-online/" data-track="cta_clicked" data-label="consult_online" data-placement="sticky"
+        >Consult online</a
+      >
+    </nav>
+
+    <div id="consent" hidden>
+      <p>
+        We use analytics to see which pages are useful. No personal or health information is
+        collected.
+      </p>
+      <button class="ok" id="consent-ok">Allow</button>
+      <button id="consent-no">No thanks</button>
+    </div>
+
+    <div id="pagemeta" hidden data-slug={slug} data-pagetype={pageType} data-category={category}></div>
+
+    <script>
+      import { init, grantConsent, declineConsent, consentStatus } from '../scripts/analytics.js';
+      const m = document.getElementById('pagemeta').dataset;
+      const bar = document.getElementById('consent');
+      if (!consentStatus()) bar.hidden = false;
+      document.getElementById('consent-ok').onclick = () => {
+        grantConsent();
+        bar.hidden = true;
+      };
+      document.getElementById('consent-no').onclick = () => {
+        declineConsent();
+        bar.hidden = true;
+      };
+      init({ slug: m.slug, page_type: m.pagetype, category: m.category });
+    </script>
+
+    <style>
+      .mainnav {
+        display: none;
+        align-items: center;
+        gap: 24px;
+      }
+      .mainnav a {
+        color: var(--ink);
+        text-decoration: none;
+        font-size: var(--t-small);
+        font-weight: 600;
+      }
+      .mainnav a:not(.btn):hover {
+        color: var(--signal);
+      }
+      @media (min-width: 900px) {
+        .mainnav {
+          display: flex;
+        }
+      }
+    </style>
+  </body>
+</html>

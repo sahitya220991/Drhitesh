@@ -1,0 +1,55 @@
+---
+import Base from '../../layouts/Base.astro';
+import { doctor } from '../../data/site.js';
+
+export const charts = [
+  ['Hair fall', '/diet/hair-fall/', 'Iron, protein and vitamin D in everyday Indian meals — and why most hair supplements do nothing.'],
+  ['Acne', '/diet/acne/', 'Glycaemic load, dairy and the foods wrongly blamed. Honest about where the evidence is thin.'],
+  ['Pigmentation', '/diet/pigmentation/', 'What diet can and cannot do for melasma and dark patches — plus the part that actually matters.'],
+  ['PCOS skin and hair', '/diet/pcos/', 'Eating for insulin resistance without giving up roti, rice or a normal family kitchen.'],
+];
+---
+
+<Base
+  title="Diet charts"
+  description="Practical diet charts for hair fall, acne, pigmentation and PCOS, built around Indian food. Free to read, share and print. By Dr Hitesh Aggarwal, dermatologist."
+  slug="diet-index"
+  pageType="index"
+>
+  <section class="wrap band">
+    <h1>Diet charts</h1>
+    <p class="lead" style="margin-top:14px">
+      Practical charts built around food that is actually eaten in Indian homes — dal, roti, curd,
+      seasonal vegetables — rather than salmon and kale. Free to read, share on WhatsApp or print.
+    </p>
+
+    <div class="grid grid-2" style="margin-top:30px">
+      {
+        charts.map(([label, href, note]) => (
+          <a class="card" href={href} data-track="internal_link_clicked" data-label={label} data-placement="diet_index">
+            <h4>{label}</h4>
+            <p>{note}</p>
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="note" style="margin-top:36px; max-width:720px">
+      <h3>What these can and cannot do</h3>
+      <p>
+        Where a deficiency is driving the problem — iron in hair fall is the common example —
+        correcting it makes a real difference. Where the cause is hormonal or genetic, diet
+        supports treatment but will not replace it.
+      </p>
+      <p>
+        Each chart says which of the two applies, and is honest about the claims that have little
+        evidence behind them. They are written to be useful rather than to sell anything.
+      </p>
+    </div>
+
+    <aside class="byline" style="max-width:720px">
+      <p><strong>Written and reviewed by {doctor.name}</strong></p>
+      <p style="color:var(--ink-2)">{doctor.qualifications} · {doctor.registration}</p>
+    </aside>
+  </section>
+</Base>

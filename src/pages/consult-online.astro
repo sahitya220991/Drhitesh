@@ -1,0 +1,168 @@
+---
+import Base from '../layouts/Base.astro';
+import { doctor, bookingHref } from '../data/site.js';
+
+const steps = [
+  ['Book a slot', 'Pick a time, confirm your identity and consent, and pay the fee. You get a confirmation on WhatsApp.'],
+  ['Send photographs', 'Clear photos of the affected area in daylight, plus any reports and the names of creams or tablets already used.'],
+  ['The consultation', '15–20 minutes on video. History, examination of what can be seen, the likely diagnosis, and what it is not.'],
+  ['Plan and prescription', 'A written plan and a digital prescription for what the telemedicine rules permit, with a review date.'],
+];
+
+const worksOnline = [
+  ['Acne and post-acne marks', '/conditions/acne/'],
+  ['Hair fall where the pattern is visible in photographs', '/conditions/hair-loss-men/'],
+  ['Pigmentation and melasma', '/conditions/melasma/'],
+  ['Chronic disease already diagnosed — psoriasis, eczema', '/conditions/psoriasis/'],
+  ['Second opinions on an existing prescription', '/second-opinions/'],
+  ['Private and intimate concerns', '/conditions/intimate-concerns/'],
+];
+
+const needsClinic = [
+  'Anything needing dermoscopy, a KOH mount or a biopsy',
+  'A mole or growth that is changing',
+  'Procedures, injections and minor surgery',
+  'Widespread or rapidly worsening disease',
+  'Any case where photographs leave real doubt',
+];
+---
+
+<Base
+  title="Online dermatology consultation"
+  description="Video consultation with Dr Hitesh Aggarwal, MBBS DDVL, from anywhere in India. Diagnosis, a written plan, and a prescription where the telemedicine rules permit."
+  slug="consult-online"
+  pageType="service"
+>
+  <section class="wrap band" style="padding-bottom:0">
+    <h1>Consult online, from anywhere in India</h1>
+    <p class="lead" style="margin-top:14px">
+      A video consultation with the same approach as the clinic. Conducted under India's
+      Telemedicine Practice Guidelines — identity verification and recorded consent are part of
+      the booking.
+    </p>
+    <div class="actions" style="margin-top:24px">
+      <a
+        class="btn btn-primary"
+        href={bookingHref({ mode: 'video' })}
+        rel="noopener"
+        data-track="booking_started"
+        data-mode="video"
+        data-placement="hero">Book an online consultation</a
+      >
+    </div>
+  </section>
+
+  <section class="wrap band">
+    <h2 style="font-size:var(--t-h3)">How it works</h2>
+    <div class="grid grid-4" style="margin-top:22px">
+      {
+        steps.map(([label, note], i) => (
+          <div class="card" style="background:var(--mist-2); border-color:var(--line-2)">
+            <p class="eyebrow" style="margin-bottom:8px; color:var(--signal)">Step {i + 1}</p>
+            <h4 style="margin-bottom:6px">{label}</h4>
+            <p>{note}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="band-mist">
+    <div class="wrap band">
+      <div class="grid grid-2" style="gap:32px">
+        <div>
+          <h2 style="font-size:var(--t-h3); margin-top:0">Works well online</h2>
+          <ul style="list-style:none; display:grid; gap:10px; margin-top:16px">
+            {
+              worksOnline.map(([item, href]) => (
+                <li style="display:flex; gap:10px; font-size:var(--t-small)">
+                  <span style="color:var(--signal); font-weight:600">✓</span>
+                  <a href={href} data-track="internal_link_clicked" data-label={item}>{item}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div>
+          <h2 style="font-size:var(--t-h3); margin-top:0">Needs an in-person visit</h2>
+          <ul style="list-style:none; display:grid; gap:10px; margin-top:16px">
+            {
+              needsClinic.map((item) => (
+                <li style="display:flex; gap:10px; font-size:var(--t-small); color:var(--ink-2)">
+                  <span style="color:var(--ink-2); font-weight:600">—</span>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <p style="font-size:var(--t-small); margin-top:16px; font-style:italic">
+            If your problem falls here, you'll be told at the start and the consultation fee will
+            not be taken.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="prose" style="padding-block:clamp(32px,5vw,56px) 0">
+    <h2>Prescriptions</h2>
+    <p>
+      Online consultations in India follow the national Telemedicine Practice Guidelines. Some
+      medicines can be prescribed after a video consultation and some cannot, and that is not a
+      matter of preference.
+    </p>
+    <p>
+      Where a medicine carries meaningful risks — isotretinoin for acne, or anti-androgens for
+      hair loss — you will be taken through those risks before anything is prescribed, and given
+      a written record of that discussion.
+      <a href="/telemedicine-consent/">Full telemedicine consent terms.</a>
+    </p>
+
+    <h2>Before your call</h2>
+    <ul>
+      <li>Photographs in natural daylight, not under a bulb, without a filter</li>
+      <li>One wide photo and one close-up of each affected area</li>
+      <li>A list of everything you are applying or taking, including supplements and anything bought without a prescription</li>
+      <li>Any previous prescriptions or test reports</li>
+      <li>A quiet, private spot with a stable connection</li>
+    </ul>
+
+    <div class="note">
+      <h3>A note on what video can and cannot do</h3>
+      <p>
+        A remote consultation is a weaker diagnostic setting than a clinic — dermoscopy, a KOH
+        mount and a biopsy cannot be done over video. What it can do is take a full history,
+        assess what is visible, and tell you honestly which of the two situations you are in.
+      </p>
+      <p>
+        Sometimes the right answer is a test done locally and sent back. Sometimes it is that this
+        needs someone to look at it in person. Either way you will be told during the call rather
+        than afterwards.
+      </p>
+    </div>
+
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/second-opinions/">Second opinions</a></li>
+      <li><a href="/#diagnosis">How a diagnosis is made</a></li>
+      <li><a href="/clinics/">Visit a clinic instead</a></li>
+      <li><a href="/telemedicine-consent/">Telemedicine consent</a></li>
+    </ul>
+
+    <div class="actions" style="margin-top:28px">
+      <a
+        class="btn btn-primary"
+        href={bookingHref({ mode: 'video' })}
+        rel="noopener"
+        data-track="booking_started"
+        data-mode="video"
+        data-placement="page_end">Book an online consultation</a
+      >
+    </div>
+
+    <aside class="byline">
+      <p><strong>{doctor.name}</strong></p>
+      <p style="color:var(--ink-2)">{doctor.qualifications} · {doctor.registration}</p>
+    </aside>
+  </div>
+</Base>

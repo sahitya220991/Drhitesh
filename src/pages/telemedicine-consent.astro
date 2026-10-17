@@ -1,0 +1,123 @@
+---
+import Page from '../layouts/Page.astro';
+import { doctor, site } from '../data/site.js';
+---
+
+<Page
+  title="Telemedicine consent"
+  description="What you are agreeing to when you book an online consultation, what it can and cannot do, and how prescribing works."
+  slug="telemedicine-consent"
+  updated="2026-10-17"
+  intro="Read this before your online consultation. It sets out what a video consultation can do, what it cannot, and what you are consenting to."
+  showByline={true}
+>
+  <div class="note note-warn">
+    <h3>Before publishing</h3>
+    <p>
+      This draft follows the Telemedicine Practice Guidelines issued under India's medical council
+      regulations. It should be checked against the current text of those guidelines, and reviewed
+      by a lawyer advising medical practices, before the site goes live.
+    </p>
+  </div>
+
+  <h2>Who you are consulting</h2>
+  <p>
+    {doctor.name}, {doctor.qualifications} (Dermatology, Venereology and Leprology), registered
+    with the {doctor.registration}. Registration can be verified on the Delhi Medical Council
+    register.
+  </p>
+  <p>
+    Your identity will also be confirmed at the start of the consultation. This is a requirement
+    of the guidelines, not a formality.
+  </p>
+
+  <h2>What you are consenting to</h2>
+  <p>By proceeding with an online consultation you agree that:</p>
+  <ul>
+    <li>You are consulting a registered medical practitioner over video</li>
+    <li>You consent to the consultation taking place remotely</li>
+    <li>You will give accurate information about your symptoms, history and current medicines</li>
+    <li>A clinical record of the consultation will be created and retained</li>
+    <li>Photographs you send become part of that clinical record</li>
+    <li>You may withdraw consent and end the consultation at any point</li>
+  </ul>
+
+  <h2>What a video consultation can and cannot do</h2>
+  <p>
+    A remote consultation is a weaker diagnostic setting than a clinic. A full history can be
+    taken, and many skin and hair conditions are clearly visible in good photographs. But some
+    things cannot be done over video, and saying so plainly is part of doing this properly.
+  </p>
+
+  <h3>Cannot be done remotely</h3>
+  <ul>
+    <li>Dermoscopy or trichoscopy — magnified examination of skin and scalp</li>
+    <li>A KOH mount to confirm or exclude fungal infection</li>
+    <li>A biopsy, swab or patch test</li>
+    <li>Any procedure, injection or minor surgery</li>
+    <li>Assessment of a mole or growth that is changing, which needs examination</li>
+  </ul>
+
+  <p>
+    If your condition requires any of these, you will be told at the start of the consultation
+    and advised where to be seen. In that situation the consultation fee is not taken.
+  </p>
+
+  <h2>Prescribing</h2>
+  <p>
+    The Telemedicine Practice Guidelines place medicines into categories and restrict what may be
+    prescribed in a first remote consultation. Some medicines cannot be prescribed remotely at
+    all, and some require an in-person examination first.
+  </p>
+  <p>
+    This affects dermatology directly. Isotretinoin for acne, and anti-androgen medicines used for
+    hair loss, both carry significant considerations and restrictions. Where such a medicine is
+    being considered, the risks and alternatives will be discussed with you before anything is
+    prescribed, and you will receive a written record of that discussion.
+  </p>
+  <p>
+    Any prescription issued carries the prescriber's name and registration number.
+  </p>
+
+  <h2>Photographs</h2>
+  <p>
+    Clear photographs materially improve what can be assessed remotely. Take them in natural
+    daylight, without a filter, with one wide view and one close-up of each affected area.
+  </p>
+  <p>
+    Photographs are stored as part of your confidential clinical record. They are never used
+    publicly — on this website, on social media or in teaching — without separate written consent
+    that you can withdraw.
+  </p>
+
+  <h2>Confidentiality and its limits</h2>
+  <p>
+    Your consultation and records are confidential. Information is not shared with family
+    members or anyone else without your consent, except where disclosure is required by law.
+  </p>
+  <p>
+    Video consultations take place over a standard internet connection. Please take the call
+    somewhere private.
+  </p>
+
+  <h2>If the technology fails</h2>
+  <p>
+    If the connection fails before the consultation can be completed, it will be rescheduled or
+    the fee refunded. You are welcome to request an audio consultation if video is not working,
+    though for dermatology this limits what can be assessed and you will be told if it is not
+    adequate.
+  </p>
+
+  <h2>This is not an emergency service</h2>
+  <p>
+    Do not book an online consultation for a rapidly spreading rash, blistering, a severe
+    allergic reaction, or any skin problem with fever or feeling unwell. Seek care in person
+    immediately.
+  </p>
+
+  <h2>Questions</h2>
+  <p>
+    If anything here is unclear, ask before your consultation rather than during it:
+    <a href={`mailto:${site.email}`}>{site.email}</a>.
+  </p>
+</Page>

@@ -1,0 +1,94 @@
+---
+import Base from '../../layouts/Base.astro';
+
+// Every entry here is a page that exists. Adding a condition =
+// one new file in this folder + one line in this list.
+export const groups = [
+  [
+    'Hair',
+    [
+      ['Hair loss in men', '/conditions/hair-loss-men/', 'Pattern hair loss, receding hairline, thinning crown.'],
+      ['Hair loss in women', '/conditions/hair-loss-women/', 'Diffuse thinning and a widening parting — and why blood tests come first.'],
+      ['Finasteride and dutasteride', '/conditions/finasteride-dutasteride-side-effects/', 'Honest answers about side effects, and what is actually established.'],
+      ['Alopecia areata', '/conditions/alopecia-areata/', 'Sudden round patches. Autoimmune, and often self-limiting.'],
+    ],
+  ],
+  [
+    'Acne',
+    [
+      ['Acne', '/conditions/acne/', 'Breakouts at any age, and why the type changes the treatment.'],
+      ['Acne scars', '/conditions/acne-scars/', 'Pitted and rolling scars — which type you have decides what works.'],
+    ],
+  ],
+  [
+    'Pigmentation',
+    [
+      ['Melasma', '/conditions/melasma/', 'Symmetrical brown patches. Controlled rather than cured.'],
+      ['Pigmentation and uneven tone', '/conditions/pigmentation/', 'Dark patches, tanning, dark circles and the metabolic ones.'],
+    ],
+  ],
+  [
+    'Long-term skin disease',
+    [
+      ['Psoriasis', '/conditions/psoriasis/', 'Immune-driven, not an infection, and not contagious.'],
+      ['Eczema', '/conditions/eczema/', 'Itchy, dry, inflamed skin — and the treatment that is routinely underdone.'],
+      ['Vitiligo', '/conditions/vitiligo/', 'White patches. Not leprosy, and not caused by any food.'],
+      ['Fungal infections', '/conditions/fungal-infections/', 'Ringworm that keeps returning, and the reason it usually does.'],
+    ],
+  ],
+  [
+    'Other',
+    [
+      ['Private and intimate concerns', '/conditions/intimate-concerns/', 'Genital and intimate skin, discussed matter-of-factly.'],
+      ['PCOS skin and hair', '/conditions/pcos/', 'Jawline acne, facial hair, scalp thinning and dark neck folds.'],
+    ],
+  ],
+];
+---
+
+<Base
+  title="Conditions treated"
+  description="Skin, hair and nail conditions treated by Dr Hitesh Aggarwal, dermatologist. Each page covers what it is, what it is mistaken for, and how it is diagnosed."
+  slug="conditions-index"
+  pageType="index"
+>
+  <section class="wrap band">
+    <h1>Conditions</h1>
+    <p class="lead" style="margin-top:14px">
+      Start with the problem, not the procedure. Each page covers what the condition is, what it
+      is most often mistaken for, how it is diagnosed, and what actually works.
+    </p>
+
+    {
+      groups.map(([group, items]) => (
+        <>
+          <h2 style="font-size:var(--t-h3); margin-top:40px">{group}</h2>
+          <div class="grid grid-3" style="margin-top:18px">
+            {items.map(([label, href, note]) => (
+              <a
+                class="card"
+                href={href}
+                data-track="internal_link_clicked"
+                data-label={label}
+                data-placement="conditions_index"
+              >
+                <h4>{label}</h4>
+                <p>{note}</p>
+              </a>
+            ))}
+          </div>
+        </>
+      ))
+    }
+
+    <div class="note" style="margin-top:44px; max-width:720px">
+      <h3>Not sure which one fits?</h3>
+      <p>
+        That is normal, and conditions that look alike are often different conditions. If you have
+        already been treated once or twice without improvement,
+        <a href="/second-opinions/">a second opinion</a> is usually more useful than reading
+        further.
+      </p>
+    </div>
+  </section>
+</Base>

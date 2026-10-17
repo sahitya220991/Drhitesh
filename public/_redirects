@@ -1,0 +1,60 @@
+# ─────────────────────────────────────────────────────────────
+#  301 REDIRECTS FROM THE OLD WORDPRESS SITE
+#
+#  Cloudflare Pages reads this file automatically. One rule per
+#  line: old path, new path, status code.
+#
+#  301 = permanent. It tells Google the page has moved for good
+#  and passes the accumulated ranking across. A 302 does not.
+#
+#  These cover every URL that was live on the old site. Without
+#  them, six years of Google ranking 404s silently on the day
+#  the domain switches over.
+#
+#  Before launch: check Google Search Console on the current
+#  site to see which of these actually receive traffic, and
+#  adjust the destinations accordingly.
+# ─────────────────────────────────────────────────────────────
+
+# ── About and contact ────────────────────────────────────────
+/about-us/                              /about/                                 301
+/our-doctors/                           /about/                                 301
+/contact-us/                            /clinics/                               301
+
+# ── Old treatment index pages (there were two) ───────────────
+/treatments/                            /conditions/                            301
+/treatments-2/                          /conditions/                            301
+
+# ── Old treatment pages → new condition pages ────────────────
+/treatments/acne/                       /conditions/acne/                       301
+/treatments/eczema/                     /conditions/eczema/                     301
+/treatments/fungal-infections/          /conditions/fungal-infections/          301
+/treatments/pigmentation/               /conditions/melasma/                    301
+/treatments/psoriasis/                  /conditions/psoriasis/                  301
+/treatments/vitiligo/                   /conditions/vitiligo/                   301
+
+# No dedicated page for these yet — send to the conditions index.
+# Molluscum in particular appears in his Google reviews and is
+# worth its own page later; update this line when it exists.
+/treatments/keloid/                     /conditions/                            301
+/treatments/molluscum-contagiosum/      /conditions/                            301
+/treatments/urticaria/                  /conditions/                            301
+
+# ── Services that no longer exist as separate pages ──────────
+/prp-therapy/                           /conditions/hair-loss-men/              301
+/facial-asthetics-workshop/             /for-doctors/                           301
+
+# Plastic surgery was on the old site. He is not a plastic
+# surgeon, so this was removed rather than rebuilt.
+/plastic-surgery/                       /                                       301
+
+# Before/after gallery deferred — see the design brief.
+/gallery/                               /                                       301
+
+# No articles hub yet. Change this when one exists.
+/blog/                                  /                                       301
+
+# ── Common variants ──────────────────────────────────────────
+/home/                                  /                                       301
+/index.php                              /                                       301
+/about/us/                              /about/                                 301

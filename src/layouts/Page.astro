@@ -1,0 +1,53 @@
+---
+// Simple article-style page: policies, For Doctors, second opinions.
+// Same reading column and type as a condition page, without the
+// clinical furniture (glance strip, "what else it could be", review date).
+import Base from './Base.astro';
+import { doctor } from '../data/site.js';
+
+const {
+  title,
+  description,
+  slug,
+  pageType = 'page',
+  intro = null,
+  crumb = null, // [label, href]
+  updated = null, // ISO date — policy pages show this
+  showByline = false,
+  noindex = false,
+} = Astro.props;
+
+const updatedLabel = updated
+  ? new Date(updated).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
+  : null;
+---
+
+<Base title={title} description={description} slug={slug} pageType={pageType} noindex={noindex}>
+  <div class="prose" style="padding-block:clamp(28px,5vw,52px) 48px">
+    {crumb && <p class="crumb"><a href={crumb[1]}>{crumb[0]}</a></p>}
+    <h1>{title}</h1>
+    {intro && <p class="lead" style="margin-top:14px">{intro}</p>}
+    {
+      updatedLabel && (
+        <p style="font-size:var(--t-small); color:var(--ink-2); margin-top:10px">
+          Last updated: {updatedLabel}
+        </p>
+      )
+    }
+
+    <slot />
+
+    {
+      showByline && (
+        <aside class="byline">
+          <p>
+            <strong>{doctor.name}</strong>
+          </p>
+          <p style="color:var(--ink-2)">
+            {doctor.qualifications} · {doctor.registration}
+          </p>
+        </aside>
+      )
+    }
+  </div>
+</Base>

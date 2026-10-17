@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://drhiteshaggarwal.com/sitemap-index.xml
