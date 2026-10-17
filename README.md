@@ -1,4 +1,4 @@
-# Dr Hitesh Aggarwal — website
+# Dr Hitesh Aggarwal — website.
 
 Static site built with Astro. No backend, no database, no server to maintain.
 Output is plain HTML and CSS with roughly 2 KB of inlined JavaScript.
