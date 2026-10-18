@@ -48,11 +48,17 @@ const schema = {
   })),
 };
 
+// Conditions stays first — a patient arrives with a problem, and it
+// is also the largest body of content. About moves up to second:
+// for a national teleconsultation audience who cannot walk into the
+// clinic, "who is this doctor" is the question immediately after
+// "do you treat my problem". Clinics is last on purpose; it is
+// logistics, and it matters least to a patient outside Delhi.
 const nav = [
   ['Conditions', '/conditions/'],
+  ['About', '/about/'],
   ['Second opinion', '/second-opinions/'],
   ['Diet charts', '/diet/'],
-  ['About', '/about/'],
   ['Clinics', '/clinics/'],
 ];
 
@@ -255,11 +261,18 @@ const footerCols = [
         align-items: center;
         gap: 24px;
       }
-      .mainnav a {
+      /* :not(.btn) matters. This rule is scoped, so it outranks the
+         global .btn-primary and was repainting the button's white
+         label dark navy on a blue fill. */
+      .mainnav a:not(.btn) {
         color: var(--ink);
         text-decoration: none;
         font-size: var(--t-small);
         font-weight: 600;
+      }
+      .mainnav a.btn {
+        text-decoration: none;
+        font-size: var(--t-small);
       }
       .mainnav a:not(.btn):hover {
         color: var(--signal);
