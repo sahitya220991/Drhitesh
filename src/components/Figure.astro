@@ -1,0 +1,47 @@
+---
+// Image slot.
+//
+// Shows a labelled placeholder until a real photograph is added,
+// then swaps to the image automatically. Nothing on the page
+// moves when that happens, because the aspect ratio is held in
+// both states.
+//
+// To add a photograph:
+//   1. Put the file in  public/images/
+//   2. Fill in the matching entry in  src/data/images.js
+//
+// No page file needs editing.
+
+import { images } from '../data/images.js';
+
+const { id, ratio = '4 / 3', sticky = false, priority = false, class: cls = '' } = Astro.props;
+
+const img = images[id];
+const hasImage = img && img.file;
+
+const styles = [
+  `aspect-ratio:${ratio}`,
+  sticky ? 'position:sticky; top:24px; min-height:100%' : '',
+].filter(Boolean).join('; ');
+---
+
+{
+  hasImage ? (
+    <figure class={`img-slot ${cls}`} style={styles}>
+      <img
+        src={`/images/${img.file}`}
+        alt={img.alt}
+        width={img.width}
+        height={img.height}
+        loading={priority ? 'eager' : 'lazy'}
+        decoding={priority ? 'sync' : 'async'}
+        fetchpriority={priority ? 'high' : 'auto'}
+        style={img.position ? `object-position:${img.position}` : undefined}
+      />
+    </figure>
+  ) : (
+    <div class={`img-slot ${cls}`} style={styles}>
+      {img?.placeholder ?? id}
+    </div>
+  )
+}

@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { doctor, clinics, proof, site, bookingHref } from '../data/site.js';
+import Figure from '../components/Figure.astro';
 
 const concerns = [
   ['My hair is falling out', '/conditions/hair-loss-men/', 'Thinning at the crown or hairline, sudden shedding, bald patches, dandruff that keeps returning.'],
@@ -115,7 +116,7 @@ const charts = [
       </p>
     </div>
 
-    <div class="img-slot" style="aspect-ratio:4/5">Image 1 · Hero — dr-hitesh-portrait.jpg</div>
+    <Figure id="home-hero" ratio="4 / 5" priority={true} />
   </section>
 
   <!-- ═══ 2 · Credentials band — the one warm element ════════ -->
@@ -184,9 +185,7 @@ const charts = [
           }
         </ol>
 
-        <div class="img-slot" style="aspect-ratio:auto; min-height:100%; position:sticky; top:24px">
-          Image 2 · Diagnosis — trichoscopy.jpg
-        </div>
+        <Figure id="home-diagnosis" ratio="4 / 3" sticky={true} />
       </div>
 
       <div
@@ -229,9 +228,7 @@ const charts = [
       </div>
 
       <div>
-        <div class="img-slot" style="aspect-ratio:16/10; margin-bottom:20px">
-          Image 3 · Second opinion — consultation.jpg
-        </div>
+        <Figure id="home-second-opinion" ratio="16 / 10" class="mb-20" />
         <h4 style="margin-bottom:10px">Bring with you</h4>
         <ul style="list-style:none; display:grid; gap:8px">
           {
@@ -350,7 +347,7 @@ const charts = [
       <div
         style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:clamp(24px,3vw,44px); align-items:center"
       >
-        <div class="img-slot" style="aspect-ratio:4/5">Image 4 · About — dr-hitesh-about.jpg</div>
+        <Figure id="home-about" ratio="4 / 5" />
         <div>
           <h2 style="font-size:var(--t-h3)">About {doctor.name}</h2>
           <p style="margin-top:14px">

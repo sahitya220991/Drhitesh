@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { doctor, proof, bookingHref } from '../data/site.js';
+import Figure from '../components/Figure.astro';
 
 // Verified against original certificates. Do not inflate.
 const timeline = [
@@ -50,7 +51,7 @@ const timeline = [
           >
         </div>
       </div>
-      <div class="img-slot" style="aspect-ratio:4/5">Image · dr-hitesh-about.jpg</div>
+      <Figure id="about-portrait" ratio="4 / 5" />
     </div>
   </section>
 

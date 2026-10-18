@@ -510,10 +510,23 @@ a.card:hover {
   overflow: hidden;
 }
 
+/* A filled slot has no dashed border and no padding — the
+   photograph fills it edge to edge. */
+.img-slot:has(img) {
+  border: 0;
+  padding: 0;
+  background: var(--mist);
+}
+
 .img-slot img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
 }
 
 /* ── Sticky mobile action bar ─────────────────────────────── */
