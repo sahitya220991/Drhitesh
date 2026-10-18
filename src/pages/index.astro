@@ -362,18 +362,9 @@ const charts = [
             once or twice without a clear diagnosis.
           </p>
 
-          <div class="grid grid-2" style="margin-top:22px; gap:16px">
-            <div style="border-top:2px solid var(--line); padding-top:12px">
-              <p class="eyebrow" style="margin-bottom:4px">Qualified</p>
-              <p style="color:var(--ink); font-weight:600">{doctor.qualifications}</p>
-            </div>
-            <div style="border-top:2px solid var(--line); padding-top:12px">
-              <p class="eyebrow" style="margin-bottom:4px">Registered</p>
-              <p style="color:var(--ink); font-weight:600">{doctor.registration}</p>
-            </div>
-          </div>
-
-          <p style="margin-top:20px">
+          <!-- The qualification and registration cells that used to sit
+               here duplicated the sand band under the hero. Removed. -->
+          <p style="margin-top:24px">
             <a
               class="btn btn-secondary"
               href="/about/"
