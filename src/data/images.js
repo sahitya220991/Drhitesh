@@ -51,10 +51,10 @@ export const images = {
   // Consultation in progress. Landscape.
   'home-second-opinion': {
     placeholder: 'Image 3 · Second opinion — consultation.jpg',
-    // file: 'consultation.jpg',
-    // alt: 'Dr Hitesh Aggarwal talking with a patient during a consultation',
-    // width: 1200,
-    // height: 750,
+    file: 'consultation.jpg',
+    alt: 'Dr Hitesh Aggarwal going through a patient’s existing medication with him at the clinic',
+    width: 1200,
+    height: 750,
   },
 
   // ── Homepage, About section ──────────────────────────────
