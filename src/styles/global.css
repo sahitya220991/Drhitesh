@@ -508,6 +508,13 @@ a.card:hover {
   color: var(--ink-2);
   aspect-ratio: 4 / 3;
   overflow: hidden;
+  /* A grid or flex item that has an aspect-ratio is aligned as
+     `start`, not `stretch`. Left alone, a slot with a forced height
+     derives its own width from that height and overflows its track.
+     Pinning the width makes the track the source of truth and lets
+     aspect-ratio govern only the height. */
+  width: 100%;
+  min-width: 0;
 }
 
 /* A filled slot has no dashed border and no padding — the
