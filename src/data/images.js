@@ -38,10 +38,13 @@ export const images = {
   // Dermatoscope or trichoscope in use. Clinical, not posed.
   'home-diagnosis': {
     placeholder: 'Image 2 · Diagnosis — trichoscopy.jpg',
-    // file: 'trichoscopy.jpg',
-    // alt: 'Scalp being examined with a trichoscope',
-    // width: 1200,
-    // height: 900,
+    file: 'trichoscopy.jpg',
+    alt: 'Dr Hitesh Aggarwal examining a patient with a dermatoscope',
+    width: 1200,
+    height: 900,
+    // the slot is tall, so bias the crop right to keep the
+    // instrument and the patient in frame rather than centring
+    position: '72% 50%',
   },
 
   // ── Homepage, second opinion section ─────────────────────
