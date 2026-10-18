@@ -57,20 +57,20 @@ export const images = {
   // ── Homepage, About section ──────────────────────────────
   'home-about': {
     placeholder: 'Image 4 · About — dr-hitesh-about.jpg',
-    // file: 'dr-hitesh-about.jpg',
-    // alt: 'Dr Hitesh Aggarwal',
-    // width: 1200,
-    // height: 1500,
+    file: 'dr-hitesh-about.jpg',
+    alt: 'Dr Hitesh Aggarwal at his clinic',
+    width: 1200,
+    height: 1500,
   },
 
   // ── About page ───────────────────────────────────────────
   // Can reuse the same file as home-about, or use a different one.
   'about-portrait': {
     placeholder: 'Image · dr-hitesh-about.jpg',
-    // file: 'dr-hitesh-about.jpg',
-    // alt: 'Dr Hitesh Aggarwal',
-    // width: 1200,
-    // height: 1500,
+    file: 'dr-hitesh-about.jpg',
+    alt: 'Dr Hitesh Aggarwal at his clinic',
+    width: 1200,
+    height: 1500,
   },
 
   // ── Clinic photographs — not yet placed on any page ──────
