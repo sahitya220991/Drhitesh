@@ -28,11 +28,10 @@ export const images = {
   // Portrait, upright. The most important image on the site.
   'home-hero': {
     placeholder: 'Image 1 · Hero — dr-hitesh-portrait.jpg',
-    // file: 'dr-hitesh-portrait.jpg',
-    // alt: 'Dr Hitesh Aggarwal in his consulting room',
-    // width: 1200,
-    // height: 1500,
-    // position: '50% 30%',   // optional — shifts the crop. 30% keeps a face high in frame.
+    file: 'dr-hitesh-portrait.jpg',
+    alt: 'Dr Hitesh Aggarwal standing in his consulting room',
+    width: 1200,
+    height: 1500,
   },
 
   // ── Homepage, "How a diagnosis is made" ──────────────────
