@@ -73,7 +73,7 @@ const charts = [
 
 <Base
   title="Dermatologist — skin and hair treated after a proper diagnosis"
-  description="Dr Hitesh Aggarwal, MBBS DDVL, DMC 57994. Online dermatology consultations across India, and clinics in Narela and Rohini, Delhi. Diagnosis first, then treatment."
+  description="Dr Hitesh Aggarwal, MBBS DDVL. Online dermatology consultations across India, and clinics in Narela and Rohini, Delhi. Diagnosis first, then treatment."
   slug="home"
   pageType="home"
 >
@@ -127,9 +127,6 @@ const charts = [
     >
       <p style="color:var(--ink); font-size:var(--t-small)">
         <strong>{doctor.qualifications}</strong> (Dermatology, Venereology &amp; Leprology)
-      </p>
-      <p style="color:var(--ink); font-size:var(--t-small)">
-        <strong>{doctor.registration}</strong>
       </p>
       <p style="color:var(--ink); font-size:var(--t-small)">
         Practising dermatologist since <strong>{doctor.practisingSince}</strong>
@@ -350,16 +347,21 @@ const charts = [
         <Figure id="home-about" ratio="4 / 5" />
         <div>
           <h2 style="font-size:var(--t-h3)">About {doctor.name}</h2>
+          <!-- Practice-led, not a CV. What he does, who he sees, what
+               he teaches — no college, no coursework, no exam results. -->
           <p style="margin-top:14px">
-            A doctor since {doctor.registeredSince} and a dermatologist since {doctor.practisingSince},
-            with both MBBS and DDVL cleared at first attempt. His training at J.J.M. Medical College,
-            Davangere covered four dermatology units, including cosmetology and dermatosurgery, and
-            inpatient wards as well as outpatient clinics.
+            A dermatologist since {doctor.practisingSince} and a doctor since {doctor.registeredSince}.
+            He sees patients at two clinics in Delhi — Narela in the morning, Rohini in the evening —
+            and online for patients elsewhere in India.
           </p>
           <p style="margin-top:12px">
-            He also teaches other doctors, running facial aesthetics workshops. In practice, his work
-            is mostly medical dermatology: skin and hair conditions that have already been treated
-            once or twice without a clear diagnosis.
+            His work is mostly medical dermatology rather than cosmetic: hair loss, acne and acne
+            scarring, pigmentation, psoriasis and eczema, and fungal infections that keep coming
+            back. A large share of it is second opinions — conditions already treated once or twice
+            without a clear diagnosis.
+          </p>
+          <p style="margin-top:12px">
+            He also teaches, running facial aesthetics workshops for practising doctors.
           </p>
 
           <!-- The qualification and registration cells that used to sit
