@@ -48,15 +48,13 @@ const schema = {
   })),
 };
 
-// Conditions stays first — a patient arrives with a problem, and it
-// is also the largest body of content. About moves up to second:
-// for a national teleconsultation audience who cannot walk into the
-// clinic, "who is this doctor" is the question immediately after
-// "do you treat my problem". Clinics is last on purpose; it is
-// logistics, and it matters least to a patient outside Delhi.
+// About leads: this is a personal brand, and for a teleconsultation
+// patient outside Delhi who cannot walk into the clinic, "who is this
+// doctor" comes first. Clinics is last on purpose — logistics, and
+// least relevant to a national audience.
 const nav = [
-  ['Conditions', '/conditions/'],
   ['About', '/about/'],
+  ['Conditions', '/conditions/'],
   ['Second opinion', '/second-opinions/'],
   ['Diet charts', '/diet/'],
   ['Clinics', '/clinics/'],
