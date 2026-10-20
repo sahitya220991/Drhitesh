@@ -27,9 +27,9 @@ export const images = {
   // ── Homepage hero ────────────────────────────────────────
   // Portrait, upright. The most important image on the site.
   'home-hero': {
-    placeholder: 'Image 1 · Hero — dr-hitesh-portrait.jpg',
-    file: 'dr-hitesh-portrait.jpg',
-    alt: 'Dr Hitesh Aggarwal standing in his consulting room',
+    placeholder: 'Image 1 · Hero — dr-hitesh-hero.jpg',
+    file: 'dr-hitesh-hero.jpg',
+    alt: 'Dr Hitesh Aggarwal in his consulting room, his medical certificates on the wall behind him',
     width: 1200,
     height: 1500,
   },
@@ -58,10 +58,14 @@ export const images = {
   },
 
   // ── Homepage, About section ──────────────────────────────
+  // The white-coat portrait moved here from the hero. The previous
+  // image (dr-hitesh-about.jpg) came from the same frame as the new
+  // hero — same shirt, same pose, same wall — so the two would have
+  // read as one photograph used twice on a single page.
   'home-about': {
-    placeholder: 'Image 4 · About — dr-hitesh-about.jpg',
-    file: 'dr-hitesh-about.jpg',
-    alt: 'Dr Hitesh Aggarwal at his clinic',
+    placeholder: 'Image 4 · About — dr-hitesh-portrait.jpg',
+    file: 'dr-hitesh-portrait.jpg',
+    alt: 'Dr Hitesh Aggarwal in his white coat at the clinic',
     width: 1200,
     height: 1500,
   },
@@ -69,9 +73,9 @@ export const images = {
   // ── About page ───────────────────────────────────────────
   // Can reuse the same file as home-about, or use a different one.
   'about-portrait': {
-    placeholder: 'Image · dr-hitesh-about.jpg',
-    file: 'dr-hitesh-about.jpg',
-    alt: 'Dr Hitesh Aggarwal at his clinic',
+    placeholder: 'Image · dr-hitesh-portrait.jpg',
+    file: 'dr-hitesh-portrait.jpg',
+    alt: 'Dr Hitesh Aggarwal in his white coat at the clinic',
     width: 1200,
     height: 1500,
   },
